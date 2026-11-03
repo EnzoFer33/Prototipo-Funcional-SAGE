@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Demanda espontánea - SAGE</title>
+    <!-- Referencia al CSS global (dos niveles arriba según la estructura) -->
+    <link rel="stylesheet" href="../../../css/global.css" />
+    <!-- Referencia al CSS de este módulo -->
+    <link rel="stylesheet" href="../css/demanda.css" />
+</head>
+
+<body class="sage-app">
+    <!-- GLOBAL LAYOUT: Topbar y Header -->
+    <div class="topbar">
+        <span class="topbar-context">SAGE · Gestión clínica hospitalaria</span>
+        <div class="topbar-info">
+            <span>26 de octubre de 2026 · 10:40</span> |
+            <span>Guardia de mañana · 08:00–16:00</span>
+        </div>
+    </div>
+
+    <header class="main-header">
+        <div class="logo">
+            <img src="../../../logos/logo1.png" alt="Logo SAGE" class="logo-img" />
+        </div>
+        <nav class="main-nav">
+            <a href="../../demanda-espontanea/html/demanda.html" class="nav-item active">Demanda espontánea</a>
+            <a href="../../triage/html/triage.html" class="nav-item">Triage</a>
+            <a href="../../recetas-prescripciones/html/recetas.html" class="nav-item">Recetas</a>
+            <a href="../../altas-egresos/html/altasEgresos.html" class="nav-item">Egresos</a>
+        </nav>
+        <!-- Menú de usuario -->
+        <div class="user-menu-container">
+            <div class="user-badge" id="btn-user-menu" style="cursor: pointer">
+                Dra. Inés Costa ▾
+            </div>
+
+            <!-- Desplegable oculto -->
+            <div class="user-dropdown" id="user-dropdown" style="display: none">
+                <div class="dropdown-header">
+                    <strong>Dra. Inés Costa</strong>
+                    <span class="text-muted" style="font-size: 0.75rem; display: block">Médica de guardia</span>
+                    <span class="text-muted" style="font-size: 0.75rem; display: block">MP 48.210</span>
+                </div>
+                <div class="dropdown-body">
+                    <!-- Ruta de vuelta al login -->
+                    <a href="../../autenticacion/html/login.html" class="btn-logout">Cerrar sesión</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN MODULE: Demanda Espontánea -->
+    <main class="module-container">
+        <nav class="breadcrumbs">
+            SAGE &rsaquo; Demanda espontánea &rsaquo; Demanda espontánea
+        </nav>
+
+        <header class="module-header">
+            <div class="header-titles">
+                <span class="subtitle">RECEPCIÓN Y ATENCIÓN SIN TURNO</span>
+                <h1>Demanda espontánea</h1>
+                <p>
+                    Lista de espera, asignación de consultorio y seguimiento de los
+                    encuentros sin turno.
+                </p>
+            </div>
+            <a href="../html/demandaFormulario.html" class="btn-link">
+                <button class="btn-primary">Registrar ingreso</button>
+            </a>
+        </header>
+
+        <!-- TABS COMPONENT -->
+        <div class="tabs-container">
+            <a href="../html/demanda.html" class="tab-item active">Lista de espera</a>
+            <a href="../html/enAtencion.html" class="tab-item">En atención</a>
+            <a href="../html/finalizados.html" class="tab-item">Finalizados</a>
+        </div>
+
+        <!-- ACTION CARDS GRID (Llamador y Preparar llamado) -->
+        <section class="action-cards-grid">
+            <!-- Tarjeta Llamador -->
+            <div class="card card-call">
+                <div class="card-header-flex">
+                    <span class="subtitle">LLAMADOR DE DEMANDA</span>
+                    <span class="channel-text">Canal AMB</span>
+                </div>
+
+                <div class="call-number">AMB-042</div>
+                <div class="call-room">Consultorio 2</div>
+
+                <p class="patient-info-call">Gabriela Torres · Llamada a las 10:38</p>
+
+                <!-- En la tarjeta de Llamador -->
+                <div class="call-actions">
+                    <button id="btn-repetir" class="btn-primary">
+                        Repetir llamado
+                    </button>
+                    <button id="btn-cancelar" class="btn-secondary">
+                        No se presenta
+                    </button>
+                </div>
+
+                <p class="text-muted mt-4" style="font-size: 0.7rem">
+                    Cola AMB · Demanda espontánea. Independiente del canal TRI.
+                </p>
+            </div>
+
+            <!-- Tarjeta Preparar siguiente -->
+            <div class="card card-prepare">
+                <div class="card-header-flex">
+                    <h2>Preparar siguiente llamado</h2>
+                    <span class="channel-text">Cola AMB</span>
+                </div>
+
+                <div class="form-grid-2">
+                    <div class="form-group">
+                        <label>Paciente / código</label>
+                        <select>
+                            <option>Diego Acosta · AMB-043</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Destino *</label>
+                        <select>
+                            <option>Consultorio 2 - Medicina general</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Profesional *</label>
+                        <select>
+                            <option>Dra. Inés Costa · MP 48.210</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Prioridad registrada en triage</label>
+                        <div class="priority-display mt-2">
+                            <span class="badge badge-yellow"><i class="dot dot-yellow"></i> Prioridad intermedia</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- En la tarjeta de Preparar siguiente llamado -->
+                <div class="prepare-actions">
+                    <button id="btn-llamar" class="btn-primary">Llamar paciente</button>
+                    <span class="text-muted">El llamado conserva el código AMB y el destino
+                        seleccionado.</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- FILTERS COMPONENT -->
+        <section class="filters-bar">
+            <div class="form-group">
+                <label>Buscar paciente</label>
+                <input type="text" placeholder="Nombre, DNI o código AMB" />
+            </div>
+            <div class="form-group">
+                <label>Servicio</label>
+                <select>
+                    <option>Todos los consultorios</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Fecha</label>
+                <select>
+                    <option>26/10/2026</option>
+                </select>
+            </div>
+        </section>
+
+        <!-- DATA TABLE COMPONENT -->
+        <section class="data-section">
+            <div class="table-header-info">
+                <strong>4 en espera · 1 llamado · 1 en atención</strong>
+                <span class="text-muted">Prioridad clínica y orden de registro</span>
+            </div>
+
+            <table class="sage-table">
+                <thead>
+                    <tr>
+                        <th>Código / ingreso</th>
+                        <th>Paciente / encuentro</th>
+                        <th>Prioridad</th>
+                        <th>Destino</th>
+                        <th>Estado</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>AMB-042 · 10:02</td>
+                        <td>
+                            Gabriela Torres · 42 años<br />
+                            <span class="text-muted">DE-2026-0413</span>
+                        </td>
+                        <td>
+                            <span class="badge badge-green"><i class="dot dot-green"></i> Baja prioridad</span>
+                        </td>
+                        <td>Consultorio 2</td>
+                        <td><span class="badge badge-neutral">Llamado</span></td>
+                    </tr>
+                    <tr>
+                        <td>AMB-043 · 10:08</td>
+                        <td>
+                            Diego Acosta · 51 años<br />
+                            <span class="text-muted">DE-2026-0414</span>
+                        </td>
+                        <td>
+                            <span class="badge badge-yellow"><i class="dot dot-yellow"></i> Prioridad intermedia</span>
+                        </td>
+                        <td>Por asignar</td>
+                        <td><span class="badge badge-neutral">En espera</span></td>
+                    </tr>
+                    <tr>
+                        <td>AMB-044 · 10:15</td>
+                        <td>
+                            Valentina Ríos · 29 años<br />
+                            <span class="text-muted">DE-2026-0415</span>
+                        </td>
+                        <td>
+                            <span class="badge badge-green"><i class="dot dot-green"></i> Baja prioridad</span>
+                        </td>
+                        <td>Por asignar</td>
+                        <td><span class="badge badge-neutral">En espera</span></td>
+                    </tr>
+                    <tr>
+                        <td>AMB-045 · 10:22</td>
+                        <td>
+                            Martín Leiva · 46 años<br />
+                            <span class="text-muted">DE-2026-0416</span>
+                        </td>
+                        <td>
+                            <span class="badge badge-blue"><i class="dot dot-blue"></i> No urgente</span>
+                        </td>
+                        <td>Por asignar</td>
+                        <td><span class="badge badge-neutral">En espera</span></td>
+                    </tr>
+                    <tr>
+                        <td>AMB-046 · 10:30</td>
+                        <td>
+                            Elisa Benítez · 37 años<br />
+                            <span class="text-muted">DE-2026-0417</span>
+                        </td>
+                        <td>
+                            <span class="badge badge-green"><i class="dot dot-green"></i> Baja prioridad</span>
+                        </td>
+                        <td>Por asignar</td>
+                        <td><span class="badge badge-neutral">En espera</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- LEGEND COMPONENT -->
+        <section class="legend-bar">
+            <strong>Prioridades clínicas · Color y clasificación</strong>
+            <div class="legend-items mt-2">
+                <span><i class="dot dot-red"></i> Rojo · Atención inmediata</span>
+                <span><i class="dot dot-orange"></i> Naranja · Urgencia menor</span>
+                <span><i class="dot dot-yellow"></i> Amarillo · Prioridad
+                    intermedia</span>
+                <span><i class="dot dot-green"></i> Verde · Baja prioridad</span>
+                <span><i class="dot dot-blue"></i> Azul · No urgente</span>
+            </div>
+        </section>
+    </main>
+
+    <!-- GLOBAL LAYOUT: Footer -->
+    <footer class="main-footer">
+        <div>SAGE · Sistema de Atención y Guardia de Emergencia ·</div>
+        <div>Sede central · Guardia y consultorios</div>
+    </footer>
+
+    <div id="toast-container" class="toast-container"></div>
+
+    <!-- Script del módulo -->
+    <script src="../js/demanda.js"></script>
+    <script src="../../../js/global.js"></script>
+</body>
+
+</html>

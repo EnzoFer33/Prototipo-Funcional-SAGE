@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Demanda espontánea — En atención · SAGE</title>
+    <!-- Referencia al CSS global (dos niveles arriba según la estructura) -->
+    <link rel="stylesheet" href="../../../css/global.css" />
+    <!-- Referencia al CSS de este módulo -->
+    <link rel="stylesheet" href="../css/demanda.css" />
+</head>
+
+<body class="sage-app">
+    <!-- GLOBAL LAYOUT: Topbar y Header -->
+    <div class="topbar">
+        <span class="topbar-context">SAGE · Gestión clínica hospitalaria</span>
+        <div class="topbar-info">
+            <span>26 de octubre de 2026 · 10:40</span> |
+            <span>Guardia de mañana · 08:00–16:00</span>
+        </div>
+    </div>
+
+    <header class="main-header">
+        <div class="logo">
+            <img src="../../../logos/logo1.png" alt="Logo SAGE" class="logo-img" />
+        </div>
+        <nav class="main-nav">
+            <a href="../../demanda-espontanea/html/demanda.html" class="nav-item active">Demanda espontánea</a>
+            <a href="../../triage/html/triage.html" class="nav-item">Triage</a>
+            <a href="../../recetas-prescripciones/html/recetas.html" class="nav-item">Recetas</a>
+            <a href="../../altas-egresos/html/altasEgresos.html" class="nav-item">Egresos</a>
+        </nav>
+        <!-- Menú de usuario -->
+        <div class="user-menu-container">
+            <div class="user-badge" id="btn-user-menu" style="cursor: pointer">
+                Dra. Inés Costa ▾
+            </div>
+
+            <!-- Desplegable oculto -->
+            <div class="user-dropdown" id="user-dropdown" style="display: none">
+                <div class="dropdown-header">
+                    <strong>Dra. Inés Costa</strong>
+                    <span class="text-muted" style="font-size: 0.75rem; display: block">Médica de guardia</span>
+                    <span class="text-muted" style="font-size: 0.75rem; display: block">MP 48.210</span>
+                </div>
+                <div class="dropdown-body">
+                    <!-- Ruta de vuelta al login -->
+                    <a href="../../autenticacion/html/login.html" class="btn-logout">Cerrar sesión</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN MODULE: Demanda Espontánea -->
+    <main class="module-container">
+        <nav class="breadcrumbs">
+            SAGE &rsaquo; Demanda espontánea &rsaquo; En atención
+        </nav>
+
+        <header class="module-header">
+            <div class="header-titles">
+                <span class="subtitle">RECEPCIÓN Y ATENCIÓN SIN TURNO</span>
+                <h1>Demanda espontánea</h1>
+                <p>
+                    Lista de espera, asignación de consultorio y seguimiento de los
+                    encuentros sin turno.
+                </p>
+            </div>
+            <a href="../../demanda-espontanea/html/demandaFormulario.html" class="btn-link">
+                <button class="btn-primary">Registrar ingreso</button>
+            </a>
+        </header>
+
+        <!-- TABS COMPONENT -->
+        <div class="tabs-container">
+            <a href="../html/demanda.html" class="tab-item">Lista de espera</a>
+            <a href="../html/enAtencion.html" class="tab-item active">En atención</a>
+            <a href="../html/finalizados.html" class="tab-item">Finalizados</a>
+        </div>
+
+        <!-- FILTERS COMPONENT (4 Columnas) -->
+        <section class="filters-bar filters-4-cols">
+            <div class="form-group">
+                <label>Buscar paciente</label>
+                <input type="text" placeholder="Nombre, DNI o código AMB" />
+            </div>
+            <div class="form-group">
+                <label>Profesional</label>
+                <select>
+                    <option>Todos los profesionales</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Consultorio</label>
+                <select>
+                    <option>Todos los consultorios</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Fecha</label>
+                <select>
+                    <option>26/10/2026</option>
+                </select>
+            </div>
+        </section>
+
+        <!-- DATA TABLE COMPONENT -->
+        <section class="data-section">
+            <div class="table-header-info">
+                <strong>1 en atención</strong>
+                <span class="text-muted">Corte actual · 26/10/2026 · 10:40</span>
+            </div>
+
+            <table class="sage-table">
+                <thead>
+                    <tr>
+                        <th>Paciente / identificación</th>
+                        <th>Encuentro / código</th>
+                        <th>Prioridad</th>
+                        <th>Ingreso / inicio</th>
+                        <th>Profesional / destino</th>
+                        <th>Estado</th>
+                        <th>Acción</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <strong>Laura Méndez</strong> · 34 años<br />
+                            <span class="text-muted">HC 004218<br />DNI 36.742.518</span>
+                        </td>
+                        <td>
+                            DE-2026-0412<br />
+                            AMB-041
+                        </td>
+                        <td><span class="badge badge-green">Baja prioridad</span></td>
+                        <td>
+                            Ingreso 09:45<br />
+                            Inicio 10:12
+                        </td>
+                        <td>
+                            Dra. Inés Costa<br />
+                            MP 48.210<br />
+                            Consultorio 3
+                        </td>
+                        <td><span class="badge badge-neutral">En atención</span></td>
+                        <td><a href="#" class="btn-link">Abrir atención</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- SUMMARY CARDS -->
+        <section class="summary-cards-grid">
+            <div class="card card-white">
+                <h2>Paciente en curso</h2>
+                <p class="mt-2">
+                    Laura Méndez - DE-2026-0412. Atención iniciada a las 10:12 en
+                    Consultorio 3, a cargo de la Dra. Inés Costa - MP 48.210.
+                </p>
+                <p class="text-muted mt-2">
+                    El encuentro permanece abierto. La documentación clínica y las
+                    solicitudes se consultan desde la atención médica.
+                </p>
+                <button class="btn-primary mt-4">Abrir atención</button>
+            </div>
+            <div class="card card-gray">
+                <h2>Resumen de demanda</h2>
+                <strong class="mt-4" style="display: block">4 en espera · 1 llamado · 1 en atención</strong>
+                <p class="text-muted mt-2">
+                    Cola AMB · Demanda espontánea. Independiente del canal TRI. Esta
+                    vista muestra solo encuentros en atención.
+                </p>
+            </div>
+        </section>
+
+        <!-- LEGEND COMPONENT -->
+        <section class="legend-bar">
+            <strong>Prioridades clínicas · Color y clasificación</strong>
+            <div class="legend-items mt-2">
+                <span><i class="dot dot-red"></i> Rojo · Atención inmediata</span>
+                <span><i class="dot dot-orange"></i> Naranja · Urgencia menor</span>
+                <span><i class="dot dot-yellow"></i> Amarillo · Prioridad
+                    intermedia</span>
+                <span><i class="dot dot-green"></i> Verde · Baja prioridad</span>
+                <span><i class="dot dot-blue"></i> Azul · No urgente</span>
+            </div>
+        </section>
+    </main>
+
+    <!-- GLOBAL LAYOUT: Footer -->
+    <footer class="main-footer">
+        <div>SAGE · Sistema de Atención y Guardia de Emergencia ·</div>
+        <div>Sede central · Guardia y consultorios</div>
+    </footer>
+    
+    <script src="../../../js/global.js"></script>
+
+</body>
+
+</html>

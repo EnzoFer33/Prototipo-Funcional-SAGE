@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preparar Egreso - SAGE</title>
+    <link rel="stylesheet" href="../../../css/global.css">
+    <link rel="stylesheet" href="../css/altasEgresos.css">
+</head>
+
+<body class="sage-app">
+    <!-- GLOBAL LAYOUT: Topbar y Header -->
+    <div class="topbar">
+        <span class="topbar-context">SAGE · Gestión clínica hospitalaria</span>
+        <div class="topbar-info">
+            <span>26 de octubre de 2026 10:40</span> | <span>Guardia de mañana 08:00-16:00</span>
+        </div>
+    </div>
+
+    <header class="main-header">
+        <div class="logo">
+            <img src="../../../logos/logo1.png" alt="Logo SAGE" class="logo-img">
+        </div>
+        <nav class="main-nav">
+            <a href="../../demanda-espontanea/html/demanda.html" class="nav-item">Demanda espontánea</a>
+            <a href="../../triage/html/triage.html" class="nav-item">Triage</a>
+            <a href="../../recetas-prescripciones/html/recetas.html" class="nav-item">Recetas</a>
+            <a href="../../altas-egresos/html/altasEgresos.html" class="nav-item active">Egresos</a>
+        </nav>
+        <!-- Menú de usuario -->
+        <div class="user-menu-container">
+            <div class="user-menu-container">
+                <div class="user-badge" id="btn-user-menu" style="cursor: pointer;">
+                    Dra. Inés Costa ▾
+                </div>
+
+                <!-- Desplegable oculto -->
+                <div class="user-dropdown" id="user-dropdown" style="display: none;">
+                    <div class="dropdown-header">
+                        <strong>Dra. Inés Costa</strong>
+                        <span class="text-muted" style="font-size: 0.75rem; display: block;">Médica de guardia</span>
+                        <span class="text-muted" style="font-size: 0.75rem; display: block;">MP 48.210</span>
+                    </div>
+                    <div class="dropdown-body">
+                        <!-- Ruta de vuelta al login -->
+                        <a href="../../autenticacion/html/login.html" class="btn-logout">Cerrar sesión</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Desplegable oculto -->
+            <div class="user-dropdown" id="user-dropdown" style="display: none;">
+                <div class="dropdown-header">
+                    <strong>Dra. Inés Costa</strong>
+                    <span class="text-muted" style="font-size: 0.75rem; display: block;">Médica de guardia</span>
+                    <span class="text-muted" style="font-size: 0.75rem; display: block;">MP 48.210</span>
+                </div>
+                <div class="dropdown-body">
+                    <!-- Ruta de vuelta al login -->
+                    <a href="../../autenticacion/html/login.html" class="btn-logout">Cerrar sesión</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="module-container">
+        <nav class="breadcrumbs">
+            SAGE > Egresos > Preparar egreso
+        </nav>
+        <header class="module-header">
+            <div class="header-titles">
+                <span class="subtitle">CIERRE DEL ENCUENTRO</span>
+                <h1>Altas y egresos</h1>
+                <p>Diagnóstico de egreso, indicaciones y continuidad de cuidados del paciente.</p>
+            </div>
+            
+        </header>
+
+        <!-- BANNER DEL PACIENTE -->
+        <div class="patient-banner" style="background-color: #f9faf9;">
+            <div class="avatar">LM</div>
+            <div class="patient-banner-info">
+                <h2>Laura Méndez</h2>
+                <p class="text-muted">34 años DNI 36.742.518 HC 004218</p>
+            </div>
+            <div class="patient-banner-encounter">
+                <strong>DE-2026-0412 Demanda espontánea</strong>
+                <p class="text-muted">26/10/2026 Ingreso 09:45 Consultorio 3</p>
+            </div>
+            <div class="patient-banner-status">
+                <span class="badge badge-neutral" style="background-color: #eaf1ee; color: var(--primary-dark);">En
+                    atención</span>
+            </div>
+        </div>
+
+        <!-- LAYOUT A DOS COLUMNAS -->
+        <div class="medical-layout" style="display: grid; grid-template-columns: 2.5fr 1fr; gap: 2rem;">
+
+            <!-- COLUMNA IZQUIERDA: FORMULARIOS -->
+            <div class="main-column">
+
+                <!-- DATOS DEL EGRESO -->
+                <div class="form-card">
+                    <div class="form-card-header" style="border-bottom: none; margin-bottom: 0;">
+                        <h2>Datos del egreso</h2>
+                        <span class="text-muted" style="font-size: 0.75rem;">EG-2026-0168 - Borrador</span>
+                    </div>
+                    <div class="form-grid-2">
+                        <div class="form-group">
+                            <label>Tipo de egreso *</label>
+                            <select>
+                                <option>Alta médica</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Destino *</label>
+                            <select>
+                                <option>Domicilio</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Fecha prevista *</label>
+                            <input type="text" value="26/10/2026">
+                        </div>
+                        <div class="form-group">
+                            <label>Hora de egreso *</label>
+                            <input type="text" placeholder="Pendiente de confirmación" disabled
+                                style="background-color: #f9faf9;">
+                        </div>
+                    </div>
+                    <div class="form-group mt-2">
+                        <label>Diagnóstico de egreso *</label>
+                        <select>
+                            <option>M54.5 - Dolor lumbar bajo</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Resumen clínico y condición al egreso *</label>
+                        <textarea
+                            rows="3">Lumbalgia posterior a esfuerzo, sin signos de alarma referidos ni déficit neurológico en el examen. Marcha independiente. Reevaluar condición clínica antes de confirmar el alta.</textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Profesional responsable *</label>
+                        <input type="text" value="Dra. Inés Costa - Medicina general - MP 48.210" disabled
+                            style="background-color: #f9faf9;">
+                    </div>
+                </div>
+
+                <!-- INDICACIONES DE ALTA -->
+                <div class="form-card">
+                    <div class="form-card-header" style="border-bottom: none; margin-bottom: 0;">
+                        <h2>Indicaciones de alta</h2>
+                        <span class="text-muted" style="font-size: 0.75rem;">Entrega al paciente en consultorio</span>
+                    </div>
+                    <div class="form-group">
+                        <label>Cuidados y recomendaciones *</label>
+                        <textarea
+                            rows="2">Actividad adaptada a la tolerancia. Evitar esfuerzos y cargas mientras persista el dolor. Incorporar medidas de cuidado postural. No automedicarse.</textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Tratamiento al egreso *</label>
+                        <textarea
+                            rows="2">Paracetamol 500 mg: 1 comprimido por vía oral cada 8 horas durante 3 días. Prescripción RX-2026-0281 pendiente de revisión y firma.</textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Signos de alarma y pautas de consulta *</label>
+                        <textarea
+                            rows="2">Volver a guardia ante fiebre, debilidad en miembros inferiores, pérdida de sensibilidad, alteración del control de esfínteres o empeoramiento del dolor.</textarea>
+                    </div>
+                    <div class="form-grid-2 mt-2">
+                        <div class="form-group">
+                            <label>Seguimiento / servicio *</label>
+                            <select>
+                                <option>Traumatología - Dr. Javier Ruiz</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Interconsulta vinculada</label>
+                            <select>
+                                <option>IC-2026-0071 - En borrador</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group mt-2">
+                        <label>Indicaciones de seguimiento *</label>
+                        <textarea
+                            rows="2">Coordinar valoración ambulatoria por traumatología y controles por medicina general según evolución. Se explicarán las indicaciones al confirmar el egreso.</textarea>
+                    </div>
+                </div>
+
+                <!-- BOTONES DE ACCIÓN FINAL -->
+                <div class="form-actions-footer" style="display: flex; gap: 1rem; margin-bottom: 2rem;">
+                    <a href="altasEgresos.html" class="btn-secondary" style="padding: 0.875rem 2rem;">Guardar
+                        borrador</a>
+                    <a href="altasEgresos.html" class="btn-primary" style="padding: 0.875rem 2rem;">Firmar y confirmar
+                        egreso</a>
+                    <button class="btn-secondary text-muted" style="border: none; background: transparent;">Vista previa
+                        del informe</button>
+                </div>
+            </div>
+
+            <!-- COLUMNA DERECHA: SIDEBAR -->
+            <div class="sidebar-column">
+                <div class="sidebar-card" style="background-color: #ebf3f1; border-color: #d1e3df;">
+                    <h3 style="border-bottom: none; padding-bottom: 0;">Antes de confirmar</h3>
+                    <div class="mt-4">
+                        <strong
+                            style="display: block; color: var(--primary-dark); font-size: 0.75rem; margin-bottom: 0.5rem;">Atención
+                            aún abierta</strong>
+                        <p style="font-size: 0.875rem; line-height: 1.5; margin-bottom: 1rem;">El borrador no cambia el
+                            estado del encuentro. Laura Méndez continúa en atención hasta la firma del egreso.</p>
+                        <strong
+                            style="display: block; color: var(--primary-dark); font-size: 0.75rem; margin-bottom: 0.5rem;">Pendiente
+                            de revisión:</strong>
+                        <ul class="text-muted" style="font-size: 0.875rem; padding-left: 1.2rem; line-height: 1.5;">
+                            <li>Firma de la atención médica</li>
+                            <li>Firma de RX-2026-0281</li>
+                            <li>Envío de IC-2026-0071</li>
+                            <li>Confirmación de hora de egreso</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="sidebar-card">
+                    <h3 style="border-bottom: none; padding-bottom: 0; margin-bottom: 1.5rem;">Documentación vinculada
+                    </h3>
+                    <div style="margin-bottom: 1rem;">
+                        <strong style="font-size: 0.875rem; display: block;">DE-2026-0412 - Anamnesis</strong>
+                        <span class="text-muted" style="font-size: 0.75rem;">Evolución en borrador - Dra. Inés
+                            Costa</span>
+                    </div>
+                    <div style="margin-bottom: 1rem;">
+                        <strong style="font-size: 0.875rem; display: block;">RX-2026-0281 - Medicación</strong>
+                        <span class="text-muted" style="font-size: 0.75rem;">Paracetamol - Pendiente de firma</span>
+                    </div>
+                    <div>
+                        <strong style="font-size: 0.875rem; display: block;">IC-2026-0071 - Traumatología</strong>
+                        <span class="text-muted" style="font-size: 0.75rem;">Dr. Javier Ruiz - Pendiente de envío</span>
+                    </div>
+                </div>
+
+                <div class="sidebar-card">
+                    <h3 style="border-bottom: none; padding-bottom: 0; margin-bottom: 1.5rem;">Entrega de indicaciones
+                    </h3>
+                    <label class="checkbox-container mb-2" style="display: flex; gap: 0.5rem; font-size: 0.875rem;">
+                        <input type="checkbox" disabled> Indicaciones explicadas al paciente
+                    </label>
+                    <label class="checkbox-container mb-2" style="display: flex; gap: 0.5rem; font-size: 0.875rem;">
+                        <input type="checkbox" disabled> Comprensión confirmada
+                    </label>
+                    <label class="checkbox-container" style="display: flex; gap: 0.5rem; font-size: 0.875rem;">
+                        <input type="checkbox" disabled> Informe y receta entregados
+                    </label>
+                    <p class="text-muted mt-4" style="font-size: 0.7rem; line-height: 1.4;">Completar al confirmar el
+                        egreso. Todas las negativas requieren firma y justificativo responsable.</p>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <footer class="main-footer">
+        <div>SAGE - Sistema de Atención y Guardia de Emergencia</div>
+        <div>Sede central - Guardia y consultorios</div>
+    </footer>
+
+    <script src="../../../js/global.js"></script>
+</body>
+
+</html>

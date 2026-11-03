@@ -1,0 +1,280 @@
+/* =========================================
+   personal.css - Módulo de Gestión de Personal
+   ========================================= */
+
+/* --- LAYOUT PRINCIPAL --- */
+.module-container {
+    padding: 2rem 4rem;
+    flex: 1;
+    max-width: 1400px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.breadcrumbs {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    margin-bottom: 1.5rem;
+}
+
+.module-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 2rem;
+}
+
+.header-titles .subtitle {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--primary-dark);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.header-titles h1 {
+    font-size: 2.25rem;
+    font-weight: 400;
+    font-family: var(--font-serif);
+    margin-bottom: 0.5rem;
+}
+
+/* --- FILTROS (4 Columnas) --- */
+.filters-4-cols {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    background-color: var(--card-bg-alt);
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+}
+
+.form-group label {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.form-group select, 
+.form-group input, 
+.form-group textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    font-size: 0.875rem;
+    background-color: white;
+    outline: none;
+    font-family: inherit;
+}
+
+.form-group select:focus, 
+.form-group input:focus, 
+.form-group textarea:focus { 
+    border-color: var(--primary-dark); 
+}
+
+.form-group input:disabled,
+.form-group select:disabled {
+    color: var(--text-muted);
+    cursor: not-allowed;
+}
+
+/* --- TABLA DE DATOS --- */
+.table-header-info {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.875rem;
+    margin-bottom: 1rem;
+}
+
+.sage-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    border: 1px solid var(--border-color);
+}
+
+.sage-table thead { 
+    background-color: var(--card-bg-alt); 
+}
+
+.sage-table th, 
+.sage-table td {
+    padding: 1rem 1.5rem;
+    text-align: left;
+    font-size: 0.875rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.sage-table th { 
+    font-weight: 600; 
+    color: var(--text-muted); 
+}
+
+/* --- TARJETAS DEL PERSONAL --- */
+.profile-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+}
+
+.profile-card {
+    background-color: white;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+    display: flex;
+    flex-direction: column;
+}
+
+.profile-img-container {
+    width: 100%;
+    height: 160px;
+    background-color: #f1f1f1;
+    overflow: hidden;
+}
+
+.profile-card-body {
+    padding: 1.5rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.specialty-label {
+    font-size: 0.65rem;
+    font-weight: 700;
+    color: var(--primary-dark);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.profile-card-body h3 {
+    font-size: 1.25rem;
+    font-family: var(--font-serif);
+    font-weight: 400;
+    margin-bottom: 0.25rem;
+}
+
+.role-text {
+    font-size: 0.875rem;
+    color: var(--text-main);
+    margin-bottom: 1rem;
+}
+
+.details-text {
+    font-size: 0.75rem;
+    line-height: 1.5;
+    margin-bottom: 1.5rem;
+    flex: 1;
+}
+
+.profile-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid var(--border-color);
+    padding-top: 1rem;
+    margin-top: auto;
+}
+
+/* --- FORMULARIOS (GRILLAS Y TARJETAS) --- */
+.form-card {
+    background-color: white;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.form-card-header {
+    display: flex; 
+    justify-content: space-between; 
+    align-items: baseline;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 1rem;
+}
+
+.form-card-header h2 { 
+    font-size: 1.5rem; 
+    font-family: var(--font-serif); 
+    font-weight: 400; 
+}
+
+.form-grid-2 { 
+    display: grid; 
+    grid-template-columns: 1fr 1fr; 
+    gap: 1.5rem; 
+    margin-bottom: 1.5rem; 
+}
+
+/* --- SIDEBAR Y LAYOUT MÉDICO --- */
+.sidebar-card {
+    background-color: var(--card-bg-alt);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    border: 1px solid var(--border-color);
+}
+
+.sidebar-card h3 {
+    font-size: 1.125rem; 
+    font-family: var(--font-serif); 
+    font-weight: 400;
+    margin-bottom: 0.5rem; 
+    border-bottom: 1px solid var(--border-color); 
+    padding-bottom: 0.75rem;
+}
+
+/* --- ELEMENTOS ESPECÍFICOS DE REGISTRO --- */
+.document-upload-box {
+    border: 1px solid var(--border-color);
+    background-color: white;
+    border-radius: 6px;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    font-size: 0.875rem;
+}
+
+.document-upload-box.error-border {
+    border-color: #d32f2f;
+}
+
+.alert-box {
+    padding: 1.5rem;
+    border-radius: 8px;
+    border: 1px solid transparent;
+}
+
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.checkbox-container input {
+    accent-color: var(--primary-dark);
+    width: 1.1rem;
+    height: 1.1rem;
+}
+
+/* --- CLASES DE UTILIDAD --- */
+.mt-2 { margin-top: 1rem; }
+.mt-4 { margin-top: 2rem; }
+.mb-4 { margin-bottom: 2rem; }

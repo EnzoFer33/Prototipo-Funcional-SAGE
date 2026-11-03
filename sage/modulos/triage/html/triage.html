@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Espera y llamador de triage · SAGE</title>
+    <!-- Referencia al CSS global y logos (3 niveles arriba) -->
+    <link rel="stylesheet" href="../../../css/global.css">
+    <!-- Referencia al CSS propio del módulo -->
+    <link rel="stylesheet" href="../css/triage.css">
+</head>
+
+<body class="sage-app">
+
+    <!-- GLOBAL LAYOUT: Topbar y Header -->
+    <div class="topbar">
+        <span class="topbar-context">SAGE · Gestión clínica hospitalaria</span>
+        <div class="topbar-info">
+            <span>26 de octubre de 2026 · 10:40</span> | <span>Guardia de mañana · 08:00–16:00</span>
+        </div>
+    </div>
+
+    <header class="main-header">
+        <div class="logo">
+            <img src="../../../logos/logo1.png" alt="Logo SAGE" class="logo-img">
+        </div>
+        <nav class="main-nav">
+            <a href="../../demanda-espontanea/html/demanda.html" class="nav-item">Demanda espontánea</a>
+            <a href="../../triage/html/triage.html" class="nav-item active">Triage</a>
+            <a href="../../recetas-prescripciones/html/recetas.html" class="nav-item">Recetas</a>
+            <a href="../../altas-egresos/html/altasEgresos.html" class="nav-item">Egresos</a>
+        </nav>
+        <!-- Menú de usuario -->
+        <div class="user-menu-container">
+            <div class="user-badge" id="btn-user-menu" style="cursor: pointer;">
+                Dra. Inés Costa ▾
+            </div>
+
+            <!-- Desplegable oculto -->
+            <div class="user-dropdown" id="user-dropdown" style="display: none;">
+                <div class="dropdown-header">
+                    <strong>Dra. Inés Costa</strong>
+                    <span class="text-muted" style="font-size: 0.75rem; display: block;">Médica de guardia</span>
+                    <span class="text-muted" style="font-size: 0.75rem; display: block;">MP 48.210</span>
+                </div>
+                <div class="dropdown-body">
+                    <!-- Ruta de vuelta al login -->
+                    <a href="../../autenticacion/html/login.html" class="btn-logout">Cerrar sesión</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN MODULE: Triage -->
+    <main class="module-container">
+
+        <nav class="breadcrumbs">
+            SAGE &rsaquo; Triage &rsaquo; Triage y lista de espera
+        </nav>
+
+        <header class="module-header">
+            <div class="header-titles">
+                <span class="subtitle">RECEPCIÓN DE GUARDIA</span>
+                <h1>Triage y lista de espera</h1>
+                <p>Evaluación inicial y clasificación clínica. Cola y destinos exclusivos del canal TRI.</p>
+            </div>
+            <a href="../html/triageFormulario.html"><button class="btn-primary">Registrar paciente</button></a>
+        </header>
+
+        <!-- TABS COMPONENT -->
+        <div class="tabs-container">
+            <a href="../html/triage.html" class="tab-item active">Lista de espera</a>
+            <a href="../html/enEvaluacion.html" class="tab-item">En evaluación</a>
+            <a href="../html/clasificados.html" class="tab-item">Clasificados</a>
+        </div>
+
+        <!-- ACTION CARDS GRID (Llamador y Preparar llamado) -->
+        <section class="action-cards-grid">
+            <!-- Tarjeta Llamador -->
+            <div class="card card-call">
+                <div class="card-header-flex">
+                    <span class="subtitle">LLAMADOR DE TRIAGE</span>
+                    <span class="channel-text">Canal TRI</span>
+                </div>
+
+                <div class="call-number">TRI-018</div>
+                <div class="call-room">Box de triage 1</div>
+
+                <p class="patient-info-call">Sofía Vega · En evaluación desde 10:34</p>
+
+                <div class="call-actions">
+                    <button id="btn-repetir-triage" class="btn-primary">Repetir llamado</button>
+                </div>
+
+                <p class="text-muted mt-4" style="font-size: 0.7rem;">Solo códigos TRI. Demanda espontánea conserva su
+                    propio llamador; Atención ambulatoria no posee llamador.</p>
+            </div>
+
+            <!-- Tarjeta Preparar siguiente -->
+            <div class="card card-prepare">
+                <div class="card-header-flex">
+                    <h2>Siguiente evaluación</h2>
+                    <span class="channel-text" style="color: var(--text-muted); font-weight: normal;">Enfermería de
+                        triage</span>
+                </div>
+
+                <div class="form-grid-2">
+                    <div class="form-group">
+                        <label>Paciente *</label>
+                        <select>
+                            <option>TRI-019 - Clara Núñez</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Destino *</label>
+                        <select>
+                            <option>Box de triage 2</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Profesional *</label>
+                        <select>
+                            <option>Lic. Tomás Vidal · MN 18.730</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Estado de clasificación</label>
+                        <div class="readonly-input">Sin clasificar · Pendiente de evaluación</div>
+                    </div>
+                </div>
+
+                <div class="prepare-actions">
+                    <button id="btn-llamar-triage" class="btn-primary">Llamar a triage</button>
+                    <button id="btn-ausencia-triage" class="btn-secondary">Registrar ausencia</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- LEGEND COMPONENT (Arriba de los filtros en Triage) -->
+        <section class="legend-bar mb-4">
+            <strong>Prioridades clínicas · Color y clasificación</strong>
+            <div class="legend-items mt-2">
+                <span><i class="dot dot-red"></i> Rojo · Atención inmediata</span>
+                <span><i class="dot dot-orange"></i> Naranja · Urgencia menor</span>
+                <span><i class="dot dot-yellow"></i> Amarillo · Prioridad intermedia</span>
+                <span><i class="dot dot-green"></i> Verde · Baja prioridad</span>
+                <span><i class="dot dot-blue"></i> Azul · No urgente</span>
+            </div>
+        </section>
+
+        <!-- FILTERS COMPONENT (3 Columnas) -->
+        <section class="filters-bar filters-3-cols">
+            <div class="form-group">
+                <label>Paciente o código</label>
+                <input type="text" placeholder="Nombre, DNI o TRI">
+            </div>
+            <div class="form-group">
+                <label>Clasificación</label>
+                <select>
+                    <option>Todas las prioridades</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Estado</label>
+                <select>
+                    <option>Todos los estados</option>
+                </select>
+            </div>
+        </section>
+
+        <!-- DATA TABLE COMPONENT -->
+        <section class="data-section">
+            <div class="table-header-info">
+                <strong>7 pacientes · 4 en espera · 1 en evaluación · 2 clasificados / derivados</strong>
+                <span class="text-muted">Sin tiempos clínicos asignados por prioridad</span>
+            </div>
+
+            <table class="sage-table">
+                <thead>
+                    <tr>
+                        <th>Código / ingreso</th>
+                        <th>Paciente / motivo</th>
+                        <th>Prioridad</th>
+                        <th>Destino</th>
+                        <th>Estado</th>
+                        <th>Acción</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>TRI-014 · 10:18</td>
+                        <td>
+                            Camila Paz · 32 años<br>
+                            <span class="text-muted">Dolor de tobillo</span>
+                        </td>
+                        <td><span class="badge badge-green"><i class="dot dot-green"></i> Baja prioridad</span></td>
+                        <td>Guardia · Por asignar</td>
+                        <td><span class="badge badge-neutral">En espera</span></td>
+                        <td><a href="#" class="btn-link">Reevaluar</a></td>
+                    </tr>
+                    <tr>
+                        <td>TRI-015 · 10:21</td>
+                        <td>
+                            Pedro Luna · 54 años<br>
+                            <span class="text-muted">Control de curación</span>
+                        </td>
+                        <td><span class="badge badge-blue"><i class="dot dot-blue"></i> No urgente</span></td>
+                        <td>Guardia · Por asignar</td>
+                        <td><span class="badge badge-neutral">En espera</span></td>
+                        <td><a href="#" class="btn-link">Reevaluar</a></td>
+                    </tr>
+                    <tr>
+                        <td>TRI-019 · 10:36</td>
+                        <td>
+                            Clara Núñez · 38 años<br>
+                            <span class="text-muted">Cefalea</span>
+                        </td>
+                        <td>Sin clasificar</td>
+                        <td>Box de triage 2</td>
+                        <td><span class="badge badge-neutral">En espera</span></td>
+                        <td><a href="#" class="btn-link">Preparar llamado</a></td>
+                    </tr>
+                    <tr>
+                        <td>TRI-020 · 10:39</td>
+                        <td>
+                            Andrés Vera · 44 años<br>
+                            <span class="text-muted">Malestar general</span>
+                        </td>
+                        <td>Sin clasificar</td>
+                        <td>Por asignar</td>
+                        <td><span class="badge badge-neutral">En espera</span></td>
+                        <td><a href="#" class="btn-link">Ver registro</a></td>
+                    </tr>
+                </tbody>
+            </table>
+            <p class="text-muted mt-4" style="font-size: 0.75rem;">La clasificación la registra el profesional tras la
+                evaluación. Los pacientes sin clasificar conservan esa etiqueta hasta su valoración.</p>
+        </section>
+
+    </main>
+
+    <!-- GLOBAL LAYOUT: Footer -->
+    <footer class="main-footer">
+        <div>SAGE · Sistema de Atención y Guardia de Emergencia ·</div>
+        <div>Sede central · Guardia y consultorios</div>
+    </footer>
+
+    <!-- Contenedor dinámico para las alertas -->
+    <div id="toast-container" class="toast-container"></div>
+
+    <!-- Script del módulo -->
+    <script src="../js/triage.js"></script>
+    <script src="../../../js/global.js"></script>
+
+</body>
+
+</html>

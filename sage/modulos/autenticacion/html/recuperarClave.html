@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recuperar contraseña - SAGE</title>
+    <link rel="stylesheet" href="../../../css/global.css">
+    <link rel="stylesheet" href="../css/autenticacion.css">
+</head>
+<body>
+
+    <div class="auth-wrapper">
+        <div class="auth-card">
+            <span class="subtitle">ACCESO PROFESIONAL</span>
+            <h1>Recuperar contraseña</h1>
+            <p class="description">Ingresá tu correo electrónico para recuperar tu cuenta.</p>
+            
+            <form action="login.html" method="POST">
+                <div class="form-group">
+                    <label for="email">Correo electrónico</label>
+                    <input type="email" id="email" placeholder="Correo electrónico" required>
+                </div>
+                
+                <div class="options-row" style="margin-bottom: 1.5rem;">
+                    <a href="../html/login.html" class="auth-link">Regresar</a>
+                </div>
+                
+                <button type="submit" class="btn-submit">Enviar código</button>
+            </form>
+        </div>
+
+        <div class="help-link">
+            <span class="help-icon">?</span>
+            ¿Necesitás ayuda? Contactá a soporte de sistemas.
+        </div>
+    </div>
+
+    <div class="auth-bottom-section">
+        <div class="logo">
+            <img src="../../../logos/logo2.png" alt="Logo SAGE" class="logo-img" />
+        </div>
+        <div class="auth-footer-info">
+            Gestión clínica hospitalaria · Sede central
+        </div>
+    </div>
+
+    <footer class="auth-footer-bar">
+        <div>SAGE · Sistema de Atención y Guardia de Emergencia ·</div>
+        <div>Sede central · Guardia y consultorios</div>
+    </footer>
+
+</body>
+</html>

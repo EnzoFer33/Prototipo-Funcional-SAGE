@@ -1,0 +1,409 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Atención médica - SAGE</title>
+    <!-- Referencia al CSS global (dos niveles arriba según la estructura) -->
+    <link rel="stylesheet" href="../../../css/global.css" />
+    <!-- Referencia al CSS de este módulo -->
+    <link rel="stylesheet" href="../css/demanda.css" />
+</head>
+
+<body class="sage-app">
+    <!-- GLOBAL LAYOUT: Topbar y Header -->
+    <div class="topbar">
+        <span class="topbar-context">SAGE · Gestión clínica hospitalaria</span>
+        <div class="topbar-info">
+            <span>26 de octubre de 2026 · 10:40</span> |
+            <span>Guardia de mañana · 08:00–16:00</span>
+        </div>
+    </div>
+
+    <header class="main-header">
+        <div class="logo">
+            <img src="../../../logos/logo1.png" alt="Logo SAGE" class="logo-img" />
+        </div>
+        <nav class="main-nav">
+            <a href="../../demanda-espontanea/html/demanda.html" class="nav-item active">Demanda espontánea</a>
+            <a href="../../triage/html/triage.html" class="nav-item">Triage</a>
+            <a href="../../recetas-prescripciones/html/recetas.html" class="nav-item">Recetas</a>
+            <a href="../../altas-egresos/html/altasEgresos.html" class="nav-item">Egresos</a>
+        </nav>
+        <!-- Menú de usuario -->
+        <div class="user-menu-container">
+            <div class="user-badge" id="btn-user-menu" style="cursor: pointer">
+                Dra. Inés Costa ▾
+            </div>
+
+            <!-- Desplegable oculto -->
+            <div class="user-dropdown" id="user-dropdown" style="display: none">
+                <div class="dropdown-header">
+                    <strong>Dra. Inés Costa</strong>
+                    <span class="text-muted" style="font-size: 0.75rem; display: block">Médica de guardia</span>
+                    <span class="text-muted" style="font-size: 0.75rem; display: block">MP 48.210</span>
+                </div>
+                <div class="dropdown-body">
+                    <!-- Ruta de vuelta al login -->
+                    <a href="../../autenticacion/html/login.html" class="btn-logout">Cerrar sesión</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="module-container">
+        <nav class="breadcrumbs">
+            SAGE &rsaquo; Demanda espontánea &rsaquo; Atención médica
+        </nav>
+
+        <header class="module-header" style="align-items: center">
+            <div class="header-titles">
+                <span class="subtitle">ATENCIÓN SIN TURNO · DE-2026-0412</span>
+                <h1>Atención médica</h1>
+                <p>Demanda espontánea - Medicina general - Dra. Inés Costa</p>
+            </div>
+            <a href="../html/demanda.html" class="btn-link">
+                <button class="btn-primary">Guardar borrador</button>
+            </a>
+        </header>
+
+        <!-- BANNER DEL PACIENTE -->
+        <div class="patient-banner">
+            <div class="avatar">LM</div>
+            <div class="patient-banner-info">
+                <h2>Laura Méndez</h2>
+                <p class="text-muted">34 años · DNI 36.742.518 · HC 004218</p>
+            </div>
+            <div class="patient-banner-encounter">
+                <strong>DE-2026-0412 · Demanda espontánea</strong>
+                <p class="text-muted">26/10/2026 · Ingreso 09:45 · Consultorio 3</p>
+            </div>
+            <div class="patient-banner-status">
+                <span class="badge badge-green">En atención</span>
+            </div>
+        </div>
+
+        <!-- LAYOUT PRINCIPAL (Formulario + Sidebar) -->
+        <div class="medical-layout">
+            <!-- COLUMNA IZQUIERDA: Formularios -->
+            <div class="main-column">
+                <!-- HOJA DE ANAMNESIS -->
+                <div class="form-card">
+                    <div class="form-card-header">
+                        <h2>Hoja de anamnesis</h2>
+                        <span class="text-muted" style="font-size: 0.75rem">Campos obligatorios *</span>
+                    </div>
+
+                    <div class="form-grid-2">
+                        <div class="form-group">
+                            <label>Fecha y hora *</label>
+                            <input type="text" value="26/10/2026 - 10:12" />
+                        </div>
+                        <div class="form-group">
+                            <label>Tipo de consulta *</label>
+                            <select>
+                                <option>Primera consulta - Demanda espontánea</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Motivo de consulta *</label>
+                        <input type="text"
+                            value="Dolor lumbar de dos días de evolución, posterior a esfuerzo físico." />
+                    </div>
+
+                    <div class="form-group">
+                        <label>Enfermedad actual *</label>
+                        <textarea rows="3">
+Dolor localizado en región lumbar, sin irradiación. Aumenta con los movimientos y mejora con el reposo. Niega fiebre, traumatismo, alteraciones esfinterianas y pérdida de fuerza. No tomó medicación para este episodio.</textarea>
+                    </div>
+
+                    <div class="form-grid-2">
+                        <div class="form-group">
+                            <label>Antecedentes personales y quirúrgicos</label>
+                            <input type="text" value="Sin enfermedades crónicas. Apendicectomía en 2012." />
+                        </div>
+                        <div class="form-group">
+                            <label>Antecedentes familiares y hábitos</label>
+                            <input type="text" value="Sin antecedentes familiares relevantes. No fuma." />
+                        </div>
+                        <div class="form-group">
+                            <label>Alergias *</label>
+                            <input type="text" value="Penicilina - Exantema referido por la paciente." />
+                        </div>
+                        <div class="form-group">
+                            <label>Medicación habitual</label>
+                            <input type="text" value="No refiere medicación habitual." />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Examen físico *</label>
+                        <textarea rows="3">
+Lúcida, orientada. Dolor a la palpación paravertebral lumbar. Fuerza y sensibilidad conservadas. Marcha independiente. PA 118/76 mmHg - FC 78 lpm - FR 16 rpm - T 36,6 °C - SpO2 99%.</textarea>
+                    </div>
+
+                    <div class="form-grid-2">
+                        <div class="form-group">
+                            <label>Diagnóstico presuntivo *</label>
+                            <select>
+                                <option>M54.5 - Dolor lumbar bajo</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Estado del diagnóstico</label>
+                            <select>
+                                <option>Presuntivo - Episodio agudo</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Plan de atención *</label>
+                        <textarea rows="2">
+Tratamiento sintomático, actividad adaptada y recomendaciones de cuidado postural. Solicitar valoración por traumatología. Reevaluación clínica según evolución.</textarea>
+                    </div>
+                </div>
+
+                <!-- PLANILLA DE MEDICAMENTOS -->
+                <div class="form-card">
+                    <div class="form-card-header">
+                        <h2>Planilla de medicamentos</h2>
+                        <span class="text-muted" style="font-size: 0.75rem">RX-2026-0281 · Borrador</span>
+                    </div>
+
+                    <table class="sage-table" style="margin-bottom: 1.5rem">
+                        <thead>
+                            <tr>
+                                <th>Medicamento / vía</th>
+                                <th>Dosis</th>
+                                <th>Frecuencia</th>
+                                <th>Duración</th>
+                                <th>Estado</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    Paracetamol 500 mg<br /><span class="text-muted">Comprimido - Vía oral</span>
+                                </td>
+                                <td>500 mg</td>
+                                <td>Cada 8 h</td>
+                                <td>3 días</td>
+                                <td><span class="text-muted">Por firmar</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <p class="text-muted mb-4" style="font-size: 0.75rem">
+                        Profesional prescriptor: Dra. Inés Costa - MP 48.210. Indicación
+                        registrada: dolor lumbar.
+                    </p>
+                    <button id="btn-agregar-medicamento" class="btn-secondary mt-4">
+                        Agregar medicamento
+                    </button>
+                </div>
+
+                <!-- SECCIÓN OCULTA: INTERCONSULTA -->
+                <div id="form-interconsulta" class="form-card" style="display: none">
+                    <div class="form-card-header">
+                        <h2>Interconsulta</h2>
+                        <span class="text-muted" style="font-size: 0.75rem">IC-2026-0071 · Borrador</span>
+                    </div>
+
+                    <div class="form-grid-2">
+                        <div class="form-group">
+                            <label>Especialidad *</label>
+                            <select>
+                                <option>Traumatología</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Profesional receptor</label>
+                            <select>
+                                <option>Dr. Javier Ruiz - MP 58.732</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Motivo y pregunta clínica *</label>
+                        <input type="text"
+                            value="Valoración de lumbalgia posterior a esfuerzo. Evaluar conducta y recomendaciones para recuperación funcional." />
+                    </div>
+
+                    <div class="form-grid-2">
+                        <div class="form-group">
+                            <label>Modalidad / destino</label>
+                            <select>
+                                <option>Ambulatoria - Consultorios externos</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Respuesta del servicio</label>
+                            <input type="text" value="Pendiente de envío y aceptación" disabled
+                                style="background-color: #f9faf9" />
+                        </div>
+                    </div>
+
+                    <div class="prepare-actions mt-4">
+                        <button class="btn-primary">Guardar interconsulta</button>
+                        <button class="btn-secondary">Adjuntar informe</button>
+                        <button class="btn-link text-muted" id="btn-cerrar-interconsulta" style="margin-left: auto">
+                            Cerrar panel
+                        </button>
+                    </div>
+                </div>
+
+                <!-- SECCIÓN OCULTA: ESTUDIOS COMPLEMENTARIOS -->
+                <div id="form-estudios" class="form-card" style="display: none">
+                    <div class="form-card-header">
+                        <h2>Estudios complementarios</h2>
+                        <span class="text-muted" style="font-size: 0.75rem">Borrador</span>
+                    </div>
+                    <div class="form-group">
+                        <label>Tipo de estudio *</label>
+                        <select>
+                            <option>Radiología (Rayos X)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Detalle del estudio *</label>
+                        <input type="text" placeholder="Ej: Rx de columna lumbosacra frente y perfil" />
+                    </div>
+                    <div class="prepare-actions mt-4">
+                        <button class="btn-primary">Solicitar estudio</button>
+                        <button class="btn-link text-muted" id="btn-cerrar-estudios" style="margin-left: auto">
+                            Cerrar panel
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- COLUMNA DERECHA: Sidebar -->
+            <div class="sidebar-column">
+                <!-- Nuevo Bloque: Interconsultas -->
+                <div class="sidebar-card">
+                    <h3>Gestión de interconsultas</h3>
+                    <p class="text-muted mb-4 mt-2">
+                        Solicitar evaluación por otros servicios o especialistas.
+                    </p>
+                    <button id="btn-abrir-interconsulta" class="btn-secondary" style="width: 100%">
+                        Nueva interconsulta
+                    </button>
+                </div>
+
+                <!-- Nuevo Bloque: Estudios -->
+                <div class="sidebar-card">
+                    <h3>Estudios complementarios</h3>
+                    <p class="text-muted mb-4 mt-2">
+                        Solicitar laboratorio, diagnóstico por imágenes u otras prácticas.
+                    </p>
+                    <button id="btn-abrir-estudios" class="btn-secondary" style="width: 100%">
+                        Solicitar estudio
+                    </button>
+                </div>
+
+                <!-- Antecedentes -->
+                <div class="sidebar-card">
+                    <h3>Antecedentes de atención</h3>
+                    <div class="mt-4">
+                        <p style="font-size: 0.875rem">14/06/2026 - Medicina general</p>
+                        <p class="text-muted">
+                            Control de salud. Sin hallazgos relevantes.
+                        </p>
+                    </div>
+                    <a href="../html/historiaClinica.html"><button class="btn-secondary mt-4">
+                            Ver historia clínica
+                        </button></a>
+                </div>
+
+                <!-- Cierre -->
+                <div class="sidebar-card">
+                    <h3>Cierre de atención</h3>
+                    <p class="text-muted mb-4 mt-2">
+                        Revisar anamnesis, medicamentos y solicitudes antes de firmar el
+                        encuentro.
+                    </p>
+                    <a href="../html/demanda.html"><button class="btn-primary" style="width: 100%">
+                        Firmar atención
+                    </button></a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="main-footer">
+        <div>SAGE · Sistema de Atención y Guardia de Emergencia ·</div>
+        <div>Sede central · Guardia y consultorios</div>
+    </footer>
+
+    <!-- Script para alternar la visibilidad de los formularios ocultos -->
+    <script src="../js/formulario.js"></script>
+
+    <!-- MODAL: Añadir medicamento -->
+    <div id="modal-medicamento" class="modal-overlay" style="display: none">
+        <div class="modal-container">
+            <span class="modal-top-title">Añadir medicamento</span>
+            <div class="modal-content">
+                <h2>Agregar medicamento</h2>
+                <p class="text-muted mb-4">
+                    Complete los datos de uno o varios medicamentos. La primera fila
+                    muestra un ejemplo.
+                </p>
+
+                <div class="table-responsive">
+                    <table class="sage-table form-table">
+                        <thead>
+                            <tr>
+                                <th>Medicamento / vía</th>
+                                <th>Dosis</th>
+                                <th>Frecuencia</th>
+                                <th>Duración</th>
+                                <th>Estado</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Fila de ejemplo -->
+                            <tr>
+                                <td>
+                                    Paracetamol 500 mg<br /><span class="text-muted">Comprimido · Vía oral</span>
+                                </td>
+                                <td>500 mg</td>
+                                <td>Cada 8 h</td>
+                                <td>3 días</td>
+                                <td>Por firmar</td>
+                            </tr>
+                            <!-- Fila de inputs -->
+                            <tr class="input-row">
+                                <td><input type="text" placeholder="Medicamento / vía" /></td>
+                                <td><input type="text" placeholder="Dosis" /></td>
+                                <td><input type="text" placeholder="Frecuencia" /></td>
+                                <td><input type="text" placeholder="Duración" /></td>
+                                <td><input type="text" placeholder="Estado" /></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <button class="btn-add-row mt-4">+ Agregar otro medicamento</button>
+
+                <div class="modal-actions">
+                    <button id="btn-cancelar-med" class="btn-secondary">
+                        Cancelar
+                    </button>
+                    <button id="btn-confirmar-med" class="btn-primary">
+                        Confirmar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../../js/global.js"></script>
+
+</body>
+
+</html>

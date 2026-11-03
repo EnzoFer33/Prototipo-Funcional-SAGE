@@ -1,0 +1,311 @@
+/* =========================================
+   recetas.css - Módulo de Recetas
+   ========================================= */
+
+.module-container {
+    padding: 2rem 4rem;
+    flex: 1;
+    max-width: 1400px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.breadcrumbs {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    margin-bottom: 1.5rem;
+}
+
+.module-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 2rem;
+}
+
+.header-titles .subtitle {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--primary-dark);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.header-titles h1 {
+    font-size: 2.25rem;
+    font-weight: 400;
+    font-family: var(--font-serif);
+    margin-bottom: 0.5rem;
+}
+
+/* --- TABS --- */
+.tabs-container {
+    display: flex;
+    gap: 2rem;
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 2rem;
+}
+
+.tab-item {
+    padding: 0.5rem 0;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--text-muted);
+    border-bottom: 2px solid transparent;
+    margin-bottom: -1px;
+}
+
+.tab-item.active {
+    color: var(--primary-dark);
+    border-bottom-color: var(--primary-dark);
+}
+
+/* --- FILTROS (3 Columnas) --- */
+.filters-3-cols {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1.5rem;
+    background-color: var(--card-bg-alt);
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+}
+
+.form-group label {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.form-group select, .form-group input, .form-group textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    font-size: 0.875rem;
+    background-color: white;
+    outline: none;
+    font-family: inherit;
+}
+.form-group textarea { resize: vertical; }
+.form-group select:focus, .form-group input:focus, .form-group textarea:focus { border-color: var(--primary-dark); }
+
+/* --- TABLA DE DATOS --- */
+.sage-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    border: 1px solid var(--border-color);
+}
+.sage-table thead { background-color: var(--card-bg-alt); }
+.sage-table th, .sage-table td {
+    padding: 1rem 1.5rem;
+    text-align: left;
+    font-size: 0.875rem;
+    border-bottom: 1px solid var(--border-color);
+}
+.sage-table th { font-weight: 600; color: var(--text-muted); }
+
+/* --- BADGES ESPECÍFICOS --- */
+.badge-cyan {
+    background-color: #e0f2f1; /* Tono cyan claro para Borrador */
+    color: #00695c;
+}
+
+/* --- BANNER PACIENTE EDICIÓN --- */
+.patient-banner {
+    display: flex;
+    align-items: center;
+    background-color: #f9faf9; 
+    padding: 1.5rem 2rem;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+    gap: 2rem;
+    border: 1px solid var(--border-color);
+}
+.patient-banner .avatar {
+    width: 48px;
+    height: 48px;
+    background-color: white;
+    color: var(--primary-dark);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 600; font-size: 1.125rem;
+    border: 1px solid #d1e3df;
+}
+.patient-banner-info h2 { font-size: 1.25rem; font-family: var(--font-serif); font-weight: 400; margin-bottom: 0.25rem; }
+.patient-banner-encounter { border-left: 1px solid var(--border-color); padding-left: 2rem; flex: 1; }
+.patient-banner-encounter strong { display: block; font-size: 0.875rem; margin-bottom: 0.25rem; }
+
+/* --- FORMULARIOS (GRILLAS Y TARJETAS) --- */
+.form-card {
+    background-color: white;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 2rem;
+    margin-bottom: 1.5rem;
+}
+.form-card-header {
+    display: flex; justify-content: space-between; align-items: baseline;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 1rem;
+}
+.form-card-header h2 { font-size: 1.5rem; font-family: var(--font-serif); font-weight: 400; }
+.form-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 1.5rem; }
+.form-grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1.5rem; margin-bottom: 1.5rem; }
+
+/* --- SIDEBAR Y VISTA PREVIA DE RECETA --- */
+.sidebar-card {
+    background-color: var(--card-bg-alt);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+.sidebar-card h3 {
+    font-size: 1.125rem; font-family: var(--font-serif); font-weight: 400;
+    margin-bottom: 0.5rem; border-bottom: 1px solid var(--border-color); padding-bottom: 0.75rem;
+}
+
+/* Estilo tipo ticket/receta */
+.recipe-preview {
+    background-color: white;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+}
+.preview-header {
+    display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;
+}
+.preview-content { font-size: 0.875rem; line-height: 1.6; }
+.preview-divider {
+    border: none;
+    border-top: 1px dashed var(--border-color);
+    margin: 1rem 0;
+}
+
+/* Checklist de revisión */
+.checklist { list-style: none; padding: 0; font-size: 0.875rem; }
+.checklist li { margin-bottom: 0.5rem; display: flex; align-items: flex-start; gap: 0.5rem; }
+.check-icon { font-weight: bold; color: var(--primary-dark); }
+
+/* --- Modificador para Filtros de 4 columnas (Vista Historial) --- */
+.filters-4-cols {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 1.5rem;
+    background-color: var(--card-bg-alt);
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+}
+
+/* --- Table Header & Footer Info --- */
+.table-header-info {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.875rem;
+    margin-bottom: 1rem;
+}
+
+.table-footer-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 0.5rem;
+    font-size: 0.875rem;
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 2rem;
+}
+
+/* --- Info Box Verde --- */
+.info-box-green {
+    background-color: #ebf3f1; 
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.info-box-green strong {
+    display: block;
+    color: var(--primary-dark);
+    font-size: 0.875rem;
+    margin-bottom: 0.5rem;
+}
+
+.info-box-green p {
+    color: var(--text-main);
+    font-size: 0.875rem;
+    line-height: 1.5;
+}
+
+/* --- INDICADOR DE PASOS --- */
+.steps-indicator {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    position: relative;
+}
+
+.step-item {
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.step-item.active {
+    color: var(--primary-dark);
+}
+
+.step-item strong {
+    font-weight: 700;
+}
+
+.step-badge-right {
+    margin-left: auto;
+}
+
+/* --- ALERTAS (Alergia Amarilla) --- */
+.alert-box {
+    padding: 1.5rem;
+    border-radius: 8px;
+    border: 1px solid transparent;
+}
+
+.alert-warning {
+    background-color: #fffde7;
+    border-color: #fff59d;
+}
+
+.alert-warning strong {
+    color: #f57f17;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.alert-warning p {
+    color: var(--text-main);
+    font-size: 0.875rem;
+}
+
+/* Checkbox personalizado básico */
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+}
+.checkbox-container input {
+    accent-color: #f57f17;
+    width: 1.1rem;
+    height: 1.1rem;
+}

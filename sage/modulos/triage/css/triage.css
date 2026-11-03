@@ -1,0 +1,558 @@
+/* =========================================
+   triage.css - Módulo de Triage
+   ========================================= */
+
+.module-container {
+    padding: 2rem 4rem;
+    flex: 1;
+    max-width: 1400px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.breadcrumbs {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    margin-bottom: 1.5rem;
+}
+
+.module-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 2rem;
+}
+
+.header-titles .subtitle {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--primary-dark);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.header-titles h1 {
+    font-size: 2.25rem;
+    font-weight: 400;
+    font-family: var(--font-serif);
+    margin-bottom: 0.5rem;
+}
+
+.header-titles p {
+    color: var(--text-muted);
+    font-size: 0.875rem;
+}
+
+/* --- TABS --- */
+.tabs-container {
+    display: flex;
+    gap: 2rem;
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 2rem;
+}
+
+.tab-item {
+    padding: 0.5rem 0;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--text-muted);
+    border-bottom: 2px solid transparent;
+    margin-bottom: -1px;
+}
+
+.tab-item.active {
+    color: var(--primary-dark);
+    border-bottom-color: var(--primary-dark);
+}
+
+/* --- ACTION CARDS (Llamador) --- */
+.action-cards-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.card {
+    padding: 1.5rem;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+}
+
+.card-header-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.card-header-flex .subtitle {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--primary-dark);
+    margin-bottom: 0;
+}
+
+.card-header-flex h2 {
+    font-size: 1.25rem;
+    font-family: var(--font-serif);
+    font-weight: 400;
+}
+
+.channel-text {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--primary-dark);
+}
+
+/* Tarjeta Verde (Llamador Triage) */
+.card-call {
+    background-color: #ebf3f1; 
+    border-color: #d1e3df;
+}
+
+.call-number {
+    font-size: 3rem;
+    font-weight: 400;
+    color: var(--primary-dark);
+    font-family: var(--font-serif);
+    margin-bottom: 0.25rem;
+}
+
+.call-room {
+    font-size: 1.25rem;
+    margin-bottom: 1.5rem;
+    color: var(--text-main);
+}
+
+.patient-info-call {
+    font-size: 0.875rem;
+    margin-bottom: 1rem;
+    font-weight: 500;
+}
+
+.call-actions {
+    display: flex;
+    gap: 1rem;
+}
+
+/* Tarjeta Blanca (Preparar siguiente) */
+.card-prepare {
+    background-color: white;
+}
+
+.form-grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.form-group select, .form-group input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    font-size: 0.875rem;
+    background-color: white;
+    outline: none;
+}
+
+.readonly-input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    font-size: 0.875rem;
+    background-color: #f9faf9; /* Fondo tenue para indicar que no es editable */
+    color: var(--text-muted);
+}
+
+.prepare-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1rem;
+    border-top: 1px solid var(--border-color);
+    padding-top: 1.5rem;
+}
+
+/* --- LEYENDA (Movida arriba de filtros) --- */
+.legend-bar {
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+}
+.mb-4 { margin-bottom: 1.5rem; }
+
+.legend-bar strong {
+    display: block;
+    font-size: 0.75rem;
+}
+
+.legend-items {
+    display: flex;
+    gap: 2rem;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+/* --- FILTROS (3 Columnas para Triage) --- */
+.filters-3-cols {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1.5rem;
+    background-color: var(--card-bg-alt);
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+}
+
+/* --- TABLA DE DATOS --- */
+.data-section {
+    margin-bottom: 2rem;
+}
+
+.table-header-info {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.875rem;
+    margin-bottom: 1rem;
+}
+
+.sage-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    border: 1px solid var(--border-color);
+}
+
+.sage-table thead {
+    background-color: var(--card-bg-alt);
+}
+
+.sage-table th, 
+.sage-table td {
+    padding: 1rem 1.5rem;
+    text-align: left;
+    font-size: 0.875rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.sage-table th {
+    font-weight: 600;
+    color: var(--text-muted);
+}
+
+/* --- Modificador para Filtros de 4 columnas (Vista En evaluación) --- */
+.filters-4-cols {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1fr;
+    gap: 1.5rem;
+    background-color: var(--card-bg-alt);
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+}
+
+/* --- SUMMARY CARDS (Vista En evaluación) --- */
+.summary-cards-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr; /* Tarjeta principal más grande, resumen más chico */
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.summary-cards-grid h2 {
+    font-size: 1.25rem;
+    font-family: var(--font-serif);
+    font-weight: 400;
+}
+
+.card-white {
+    background-color: white;
+}
+
+.card-gray {
+    background-color: var(--card-bg-alt);
+    border: none;
+}
+
+/* --- Table Footer Info (Paginación) --- */
+.table-footer-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 0.5rem;
+    font-size: 0.875rem;
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 2rem;
+}
+
+/* --- Info Box --- */
+.info-box-green {
+    background-color: #ebf3f1; /* Tono verde claro usado en la app */
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.info-box-green strong {
+    display: block;
+    color: var(--primary-dark);
+    font-size: 0.875rem;
+    margin-bottom: 0.5rem;
+}
+
+.info-box-green p {
+    color: var(--text-main);
+    font-size: 0.875rem;
+    line-height: 1.5;
+}
+
+/* =========================================
+   triage.css - Formulario de Evaluación
+   ========================================= */
+
+/* Grilla de 3 columnas para formularios */
+.form-grid-3 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1.5rem;
+}
+
+/* Banner del Paciente */
+.patient-banner {
+    display: flex;
+    align-items: center;
+    background-color: #eaf1ee; 
+    padding: 1.5rem 2rem;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+    gap: 2rem;
+    border: 1px solid var(--border-color);
+}
+
+.patient-banner .avatar {
+    width: 48px;
+    height: 48px;
+    background-color: white;
+    color: var(--primary-dark);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 1.125rem;
+    border: 1px solid #d1e3df;
+}
+
+.patient-banner-info h2 {
+    font-size: 1.25rem;
+    font-family: var(--font-serif);
+    font-weight: 400;
+    margin-bottom: 0.25rem;
+}
+
+.patient-banner-encounter {
+    border-left: 1px solid #d1e3df;
+    padding-left: 2rem;
+    flex: 1;
+}
+
+.patient-banner-encounter strong {
+    display: block;
+    font-size: 0.875rem;
+    margin-bottom: 0.25rem;
+}
+
+/* Formularios en la columna izquierda */
+.form-card {
+    background-color: white;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.form-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 1rem;
+}
+
+.form-card-header h2 {
+    font-size: 1.5rem;
+    font-family: var(--font-serif);
+    font-weight: 400;
+}
+
+.form-card textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    font-size: 0.875rem;
+    font-family: inherit;
+    resize: vertical;
+    outline: none;
+}
+
+.form-card textarea:focus, .form-card input:focus {
+    border-color: var(--primary-dark);
+}
+
+/* Selector de opciones de prioridad */
+.priority-selector {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.priority-option {
+    display: flex;
+    align-items: center;
+    padding: 0.875rem 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.875rem;
+    transition: background-color 0.2s, border-color 0.2s;
+    user-select: none;
+    background-color: white; /* Estado por defecto */
+}
+
+.priority-option input[type="radio"] {
+    margin-right: 1rem;
+    accent-color: var(--primary-dark);
+}
+
+.priority-option .option-badge {
+    margin-left: auto;
+    font-size: 0.75rem;
+    font-weight: 600;
+    display: none; /* Se oculta por defecto, se muestra solo al seleccionar */
+}
+/* Rojo */
+.priority-option.option-red.selected {
+    background-color: #ffebee;
+    border-color: var(--color-red);
+    font-weight: 500;
+}
+.priority-option.option-red.selected .option-badge {
+    display: inline;
+    color: var(--color-red);
+}
+
+/* Naranja */
+.priority-option.option-orange.selected {
+    background-color: #fff3e0;
+    border-color: var(--color-orange);
+    font-weight: 500;
+}
+.priority-option.option-orange.selected .option-badge {
+    display: inline;
+    color: var(--color-orange);
+}
+
+/* Amarillo */
+.priority-option.option-yellow.selected {
+    background-color: #fffde7;
+    border-color: var(--color-yellow);
+    font-weight: 500;
+}
+.priority-option.option-yellow.selected .option-badge {
+    display: inline;
+    color: #f57f17; /* Naranja oscuro para legibilidad sobre amarillo claro */
+}
+
+/* Verde */
+.priority-option.option-green.selected {
+    background-color: #e8f5e9;
+    border-color: var(--color-green);
+    font-weight: 500;
+}
+.priority-option.option-green.selected .option-badge {
+    display: inline;
+    color: var(--color-green);
+}
+
+/* Azul */
+.priority-option.option-blue.selected {
+    background-color: #e3f2fd;
+    border-color: var(--color-blue);
+    font-weight: 500;
+}
+.priority-option.option-blue.selected .option-badge {
+    display: inline;
+    color: var(--color-blue);
+}
+/* Resaltado específico de la prioridad seleccionada (Ej: Amarillo) */
+.priority-option.selected {
+    background-color: #fffde7;
+    border-color: var(--color-yellow);
+    font-weight: 500;
+}
+
+.priority-option .option-badge {
+    margin-left: auto;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #f57f17;
+}
+
+/* Tarjetas de la columna derecha (Sidebar) */
+.sidebar-card {
+    background-color: white;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.sidebar-card h3 {
+    font-size: 1.125rem;
+    font-family: var(--font-serif);
+    font-weight: 400;
+    margin-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.75rem;
+}
+
+/* Cronograma de trazabilidad */
+.timeline {
+    position: relative;
+    padding-left: 1rem;
+    border-left: 2px solid var(--border-color);
+}
+
+.timeline-event {
+    position: relative;
+}
+
+.timeline-event::before {
+    content: '';
+    position: absolute;
+    left: calc(-1rem - 6px);
+    top: 4px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: var(--border-color);
+}

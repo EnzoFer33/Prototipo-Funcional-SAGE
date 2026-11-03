@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evaluación de Triage - SAGE</title>
+    <!-- Referencia al CSS global y logos (3 niveles arriba) -->
+    <link rel="stylesheet" href="../../../css/global.css">
+    <!-- Referencia al CSS propio del módulo -->
+    <link rel="stylesheet" href="../css/triage.css">
+</head>
+
+<body class="sage-app">
+
+    <!-- GLOBAL LAYOUT: Topbar y Header -->
+    <div class="topbar">
+        <span class="topbar-context">SAGE · Gestión clínica hospitalaria</span>
+        <div class="topbar-info">
+            <span>26 de octubre de 2026 · 10:40</span> | <span>Guardia de mañana · 08:00–16:00</span>
+        </div>
+    </div>
+
+    <header class="main-header">
+        <div class="logo">
+            <img src="../../../logos/logo1.png" alt="Logo SAGE" class="logo-img">
+        </div>
+        <nav class="main-nav">
+            <!-- Menú del rol de Demanda Espontánea -->
+            <a href="../../demanda-espontanea/html/demanda.html" class="nav-item">Demanda espontánea</a>
+            <a href="../html/triage.html" class="nav-item active">Triage</a>
+            <a href="../../recetas-prescripciones/html/recetas.html" class="nav-item">Recetas</a>
+            <a href="../../altas-egresos/html/altasEgresos.html" class="nav-item">Egresos</a>
+        </nav>
+<!-- Menú de usuario -->
+        <div class="user-menu-container">
+            <div class="user-badge" id="btn-user-menu" style="cursor: pointer;">
+                Dra. Inés Costa ▾
+            </div>
+            
+            <!-- Desplegable oculto -->
+            <div class="user-dropdown" id="user-dropdown" style="display: none;">
+                <div class="dropdown-header">
+                    <strong>Dra. Inés Costa</strong>
+                    <span class="text-muted" style="font-size: 0.75rem; display: block;">Médica de guardia</span>
+                    <span class="text-muted" style="font-size: 0.75rem; display: block;">MP 48.210</span>
+                </div>
+                <div class="dropdown-body">
+                    <!-- Ruta de vuelta al login -->
+                    <a href="../../autenticacion/html/login.html" class="btn-logout">Cerrar sesión</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN CONTAINER -->
+    <main class="module-container">
+
+        <nav class="breadcrumbs">
+            SAGE &rsaquo; Triage &rsaquo; Evaluación de triage
+        </nav>
+
+        <header class="module-header" style="align-items: center;">
+            <div class="header-titles">
+                <span class="subtitle">ENFERMERÍA · TG-2026-0088</span>
+                <h1>Evaluación de triage</h1>
+                <p>Registro de signos vitales, evaluación inicial y clasificación de prioridad.</p>
+            </div>
+            <button class="btn-primary">Guardar borrador</button>
+        </header>
+
+        <!-- BANNER DEL PACIENTE (Sofía Vega) -->
+        <div class="patient-banner" style="background-color: #ebf3f1; border-color: #d1e3df; margin-bottom: 2rem;">
+            <div class="avatar" style="background-color: white; color: var(--primary-dark); border: 1px solid #d1e3df;">
+                SV</div>
+            <div class="patient-banner-info">
+                <h2>Sofía Vega</h2>
+                <p class="text-muted">41 años · DNI 31.602.874 · HC 005218</p>
+            </div>
+            <div class="patient-banner-encounter" style="border-left: 1px solid #d1e3df;">
+                <strong>TRI-018 · TG-2026-0088 · Box de triage 1</strong>
+                <p class="text-muted">Ingreso 10:32 · Evaluación 10:34 · Lic. Tomás Vidal</p>
+            </div>
+            <div class="patient-banner-status">
+                <span class="badge badge-neutral" style="background-color: #eaf1ee; color: var(--primary-dark);">En
+                    evaluación</span>
+            </div>
+        </div>
+
+        <!-- TWO COLUMN LAYOUT -->
+        <div class="medical-layout" style="display: grid; grid-template-columns: 2.5fr 1fr; gap: 2rem;">
+
+            <!-- LEFT COLUMN: Formularios -->
+            <div class="main-column">
+
+                <!-- SIGNOS VITALES -->
+                <div class="form-card">
+                    <div class="form-card-header">
+                        <h2>Signos vitales</h2>
+                        <span class="text-muted" style="font-size: 0.75rem;">Medición · 26/10/2026 - 10:35</span>
+                    </div>
+
+                    <div class="form-grid-3">
+                        <div class="form-group">
+                            <label>Presión arterial *</label>
+                            <input type="text" value="124/78 mmHg" placeholder="Sistólica / Diastólica">
+                        </div>
+                        <div class="form-group">
+                            <label>Frecuencia cardíaca *</label>
+                            <input type="text" value="86 lpm" placeholder="latidos por minuto">
+                        </div>
+                        <div class="form-group">
+                            <label>Frecuencia respiratoria *</label>
+                            <input type="text" value="18 rpm" placeholder="respiraciones por minuto">
+                        </div>
+                        <div class="form-group">
+                            <label>Temperatura *</label>
+                            <input type="text" value="37,2 °C" placeholder="en °C">
+                        </div>
+                        <div class="form-group">
+                            <label>Saturación de oxígeno *</label>
+                            <input type="text" value="98 % · Aire ambiente" placeholder="en %">
+                        </div>
+                        <div class="form-group">
+                            <label>Dolor referido *</label>
+                            <input type="text" value="5/10 · Escala numérica" placeholder="escala de dolor">
+                        </div>
+                    </div>
+                    <span class="text-muted" style="font-size: 0.7rem; display: block; margin-top: 1rem;">Valores
+                        documentados por el profesional. No se aplican umbrales automáticos de clasificación.</span>
+                </div>
+
+                <!-- EVALUACIÓN INICIAL -->
+                <div class="form-card">
+                    <div class="form-card-header">
+                        <h2>Evaluación inicial</h2>
+                        <span class="text-muted" style="font-size: 0.75rem;">Campos obligatorios *</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Motivo de consulta *</label>
+                        <input type="text" value="Dolor abdominal de inicio esta mañana.">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Evaluación clínica *</label>
+                        <textarea
+                            rows="3">Paciente lúcida, orientada y colaboradora. Refiere dolor abdominal difuso de 4 horas de evolución y náuseas. Niega vómitos y sangrado. Deambula sin asistencia. Se informa al equipo médico para valoración.</textarea>
+                    </div>
+
+                    <div class="form-grid-2">
+                        <div class="form-group">
+                            <label>Alergias y medicación</label>
+                            <input type="text" value="Niega alergias conocidas. Sin medicación habitual.">
+                        </div>
+                        <div class="form-group">
+                            <label>Antecedentes / situación actual</label>
+                            <input type="text" value="Sin antecedentes relevantes referidos. Acompañada por familiar.">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Observaciones de enfermería *</label>
+                        <textarea
+                            rows="3">Se brinda acompañamiento y se explica el circuito de atención. Permanece sentada y comunicativa. Indicar aviso ante cambios en los síntomas. Reevaluación según criterio del equipo.</textarea>
+                    </div>
+                </div>
+
+                <!-- CLASIFICACIÓN DE PRIORIDAD -->
+                <div class="form-card">
+                    <div class="form-card-header">
+                        <h2>Clasificación de prioridad</h2>
+                        <span class="text-muted" style="font-size: 0.75rem;">Asignación profesional *</span>
+                    </div>
+
+                    <!-- PRIORIDADES CLINICAS (Checkboxes con fondo de opción activa) -->
+                    <div class="priority-selector" id="priority-selector">
+                        <label class="priority-option option-red">
+                            <input type="radio" name="prioridad" value="rojo">
+                            <span class="dot dot-red"></span> Rojo · Atención inmediata
+                            <span class="option-badge">Seleccionada · Por confirmar</span>
+                        </label>
+                        <label class="priority-option option-orange">
+                            <input type="radio" name="prioridad" value="naranja">
+                            <span class="dot dot-orange"></span> Naranja · Urgencia menor
+                            <span class="option-badge">Seleccionada · Por confirmar</span>
+                        </label>
+                        <label class="priority-option option-yellow selected">
+                            <input type="radio" name="prioridad" value="amarillo" checked>
+                            <span class="dot dot-yellow"></span> Amarillo · Prioridad intermedia
+                            <span class="option-badge">Seleccionada · Por confirmar</span>
+                        </label>
+                        <label class="priority-option option-green">
+                            <input type="radio" name="prioridad" value="verde">
+                            <span class="dot dot-green"></span> Verde · Baja prioridad
+                            <span class="option-badge">Seleccionada · Por confirmar</span>
+                        </label>
+                        <label class="priority-option option-blue">
+                            <input type="radio" name="prioridad" value="azul">
+                            <span class="dot dot-blue"></span> Azul · No urgente
+                            <span class="option-badge">Seleccionada · Por confirmar</span>
+                        </label>
+                    </div>
+
+                    <!-- CAMPOS ADICIONALES -->
+                    <div class="form-group" style="margin-top: 2rem;">
+                        <label>Fundamento de la clasificación *</label>
+                        <input type="text"
+                            value="Dolor abdominal persistente que requiere evaluación médica. Paciente consciente y comunicativa al momento de la valoración.">
+                    </div>
+
+                    <div class="form-grid-2">
+                        <div class="form-group">
+                            <label>Destino asistencial *</label>
+                            <select>
+                                <option>Guardia - Box médico por asignar</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Profesional que clasifica *</label>
+                            <input type="text" value="Lic. Tomás Vidal · MN 18.730" disabled
+                                style="background-color: #f9faf9;">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- BOTONES DE ACCIÓN -->
+                <div class="form-actions-footer"
+                    style="display: flex; align-items: center; gap: 1rem; margin-bottom: 2rem;">
+                    <a href="../html/triage.html"><button class="btn-primary" style="padding: 0.875rem 2rem;">Confirmar
+                            clasificación</button></a>
+                    <a href="../html/triage.html"><button class="btn-secondary" style="padding: 0.875rem 2rem;">Guardar
+                            borrador</button></a>
+                    <span class="text-muted" style="font-size: 0.75rem; margin-left: 1rem;">La prioridad y el destino se
+                        registrarán en el encuentro TG-2026-0088.</span>
+                </div>
+
+            </div>
+
+            <!-- RIGHT COLUMN: Sidebar -->
+            <div class="sidebar-column">
+
+                <!-- PRIORIDAD ACTUAL -->
+                <div class="sidebar-card">
+                    <h3>Prioridad actual</h3>
+                    <div class="mt-4" style="margin-bottom: 1.5rem;">
+                        <span class="badge badge-yellow"><i class="dot dot-yellow"></i> Prioridad intermedia</span>
+                    </div>
+                    <p class="text-muted" style="line-height: 1.5;">Clasificación provisional. Pendiente de confirmación
+                        por el profesional de triage.</p>
+                    <p class="text-muted mt-4" style="font-size: 0.75rem;">Sin tiempos ni umbrales de prioridad
+                        predefinidos.</p>
+                </div>
+
+                <!-- TRAZABILIDAD -->
+                <div class="sidebar-card">
+                    <h3>Trazabilidad</h3>
+                    <div class="timeline mt-4" style="font-size: 0.875rem; line-height: 1.5;">
+                        <div class="timeline-event" style="margin-bottom: 1rem;">
+                            <strong>10:32 - Ingreso registrado</strong>
+                            <p class="text-muted">Recepción de guardia</p>
+                        </div>
+                        <div class="timeline-event" style="margin-bottom: 1rem;">
+                            <strong>10:33 - Llamado TRI-018</strong>
+                            <p class="text-muted">Destino: Box de triage 1</p>
+                        </div>
+                        <div class="timeline-event" style="margin-bottom: 1rem;">
+                            <strong>10:34 - Inicio de evaluación</strong>
+                            <p class="text-muted">Lic. Tomás Vidal · MN 18.730</p>
+                        </div>
+                        <div class="timeline-event">
+                            <strong>10:35 - Signos vitales</strong>
+                            <p class="text-muted">Registro de enfermería</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- LEYENDA GLOBAL -->
+        <section class="legend-bar mb-4">
+            <strong>Prioridades clínicas · Color y clasificación</strong>
+            <div class="legend-items mt-2">
+                <span><i class="dot dot-red"></i> Rojo · Atención inmediata</span>
+                <span><i class="dot dot-orange"></i> Naranja · Urgencia menor</span>
+                <span><i class="dot dot-yellow"></i> Amarillo · Prioridad intermedia</span>
+                <span><i class="dot dot-green"></i> Verde · Baja prioridad</span>
+                <span><i class="dot dot-blue"></i> Azul · No urgente</span>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- GLOBAL LAYOUT: Footer -->
+    <footer class="main-footer">
+        <div>SAGE · Sistema de Atención y Guardia de Emergencia ·</div>
+        <div>Sede central · Guardia y consultorios</div>
+    </footer>
+    <script src="../js/triage.js"></script>
+    <script src="../../../js/global.js"></script>
+    
+</body>
+
+</html>

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Triage — En evaluación · SAGE</title>
+    <!-- Referencia al CSS global y logos (3 niveles arriba) -->
+    <link rel="stylesheet" href="../../../css/global.css">
+    <!-- Referencia al CSS propio del módulo -->
+    <link rel="stylesheet" href="../css/triage.css">
+</head>
+
+<body class="sage-app">
+
+    <!-- GLOBAL LAYOUT: Topbar y Header -->
+    <div class="topbar">
+        <span class="topbar-context">SAGE · Gestión clínica hospitalaria</span>
+        <div class="topbar-info">
+            <span>26 de octubre de 2026 · 10:40</span> | <span>Guardia de mañana · 08:00–16:00</span>
+        </div>
+    </div>
+
+    <header class="main-header">
+        <div class="logo">
+            <img src="../../../logos/logo1.png" alt="Logo SAGE" class="logo-img">
+        </div>
+        <nav class="main-nav">
+            <a href="../../demanda-espontanea/html/demanda.html" class="nav-item">Demanda espontánea</a>
+            <a href="../html/triage.html" class="nav-item active">Triage</a>
+            <a href="../../recetas-prescripciones/html/recetas.html" class="nav-item">Recetas</a>
+            <a href="../../altas-egresos/html/altasEgresos.html" class="nav-item">Egresos</a>
+        </nav>
+        <!-- Menú de usuario -->
+        <div class="user-menu-container">
+            <div class="user-badge" id="btn-user-menu" style="cursor: pointer;">
+                Dra. Inés Costa ▾
+            </div>
+
+            <!-- Desplegable oculto -->
+            <div class="user-dropdown" id="user-dropdown" style="display: none;">
+                <div class="dropdown-header">
+                    <strong>Dra. Inés Costa</strong>
+                    <span class="text-muted" style="font-size: 0.75rem; display: block;">Médica de guardia</span>
+                    <span class="text-muted" style="font-size: 0.75rem; display: block;">MP 48.210</span>
+                </div>
+                <div class="dropdown-body">
+                    <!-- Ruta de vuelta al login -->
+                    <a href="../../autenticacion/html/login.html" class="btn-logout">Cerrar sesión</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN MODULE: Triage -->
+    <main class="module-container">
+
+        <nav class="breadcrumbs">
+            SAGE &rsaquo; Triage &rsaquo; En evaluación
+        </nav>
+
+        <header class="module-header">
+            <div class="header-titles">
+                <span class="subtitle">RECEPCIÓN DE GUARDIA</span>
+                <h1>Triage y lista de espera</h1>
+                <p>Evaluación inicial y clasificación clínica. Cola y destinos exclusivos del canal TRI.</p>
+            </div>
+            <a href="../html/triageFormulario.html"><button class="btn-primary">Registrar paciente</button></a>
+        </header>
+
+        <!-- TABS COMPONENT -->
+        <div class="tabs-container">
+            <a href="../html/triage.html" class="tab-item">Lista de espera</a>
+            <a href="../html/enEvaluacion.html" class="tab-item active">En evaluación</a>
+            <a href="../html/clasificados.html" class="tab-item">Clasificados</a>
+        </div>
+
+        <!-- FILTERS COMPONENT (4 Columnas) -->
+        <section class="filters-bar filters-4-cols">
+            <div class="form-group">
+                <label>Paciente o código</label>
+                <input type="text" placeholder="Nombre, DNI o TRI">
+            </div>
+            <div class="form-group">
+                <label>Responsable</label>
+                <select>
+                    <option>Todos los profesionales</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Box</label>
+                <select>
+                    <option>Todos los boxes</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Fecha</label>
+                <select>
+                    <option>26/10/2026</option>
+                </select>
+            </div>
+        </section>
+
+        <!-- DATA TABLE COMPONENT -->
+        <section class="data-section">
+            <div class="table-header-info">
+                <strong>7 pacientes · 4 en espera · 1 en evaluación · 2 clasificados / derivados</strong>
+                <span class="text-muted">Corte actual · 10:40</span>
+            </div>
+
+            <table class="sage-table">
+                <thead>
+                    <tr>
+                        <th>Código / tiempos</th>
+                        <th>Paciente / motivo</th>
+                        <th>Prioridad provisional</th>
+                        <th>Box / responsable</th>
+                        <th>Estado</th>
+                        <th>Acción</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            TRI-018<br>
+                            <span class="text-muted">TG-2026-0088<br>Ingreso 10:32<br>Inicio 10:34</span>
+                        </td>
+                        <td>
+                            Sofía Vega · 41 años<br>
+                            <span class="text-muted">DNI 31.502.874 - HC 005218<br>Dolor abdominal</span>
+                        </td>
+                        <td>
+                            <span class="badge badge-yellow" style="margin-bottom: 0.5rem;">Prioridad
+                                intermedia</span><br>
+                            <strong>PROVISIONAL</strong><br>
+                            <span class="text-muted" style="font-size: 0.75rem;">Pendiente de confirmación</span>
+                        </td>
+                        <td>
+                            Box de triage 1<br>
+                            <span class="text-muted">Lic. Tomás Vidal<br>MN 18.730</span>
+                        </td>
+                        <td><span class="badge badge-neutral">En evaluación</span></td>
+                        <td><a href="../../demanda-espontanea/html/demanda.html" class="btn-link">Continuar
+                                evaluación</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- SUMMARY CARDS -->
+        <section class="summary-cards-grid">
+            <div class="card card-white">
+                <h2>Evaluación en curso</h2>
+                <p class="mt-2">Sofía Vega permanece en evaluación desde las 10:34. El registro TG-2026-0088 está a
+                    cargo del Lic. Tomás Vidal · MN 18.730.</p>
+                <p class="text-muted mt-2 mb-4">La prioridad intermedia es provisional; aún no se confirmó la
+                    clasificación ni la derivación de la paciente.</p>
+                <a href="../../demanda-espontanea/html/demanda.html"><button class="btn-primary mt-4">Continuar
+                        evaluación</button></a>
+            </div>
+            <div class="card card-gray">
+                <h2>Asignación profesional</h2>
+                <span class="badge badge-yellow mt-4" style="display: inline-block; margin-bottom: 1rem;">Por
+                    confirmar</span>
+                <p class="text-muted mt-2">La clasificación se registra al completar la evaluación. No se aplican
+                    tiempos ni umbrales automáticos por prioridad.</p>
+            </div>
+        </section>
+
+        <!-- LEGEND COMPONENT (Al final de la página para esta vista) -->
+        <section class="legend-bar">
+            <strong>Prioridades clínicas · Color y clasificación</strong>
+            <div class="legend-items mt-2">
+                <span><i class="dot dot-red"></i> Rojo · Atención inmediata</span>
+                <span><i class="dot dot-orange"></i> Naranja · Urgencia menor</span>
+                <span><i class="dot dot-yellow"></i> Amarillo · Prioridad intermedia</span>
+                <span><i class="dot dot-green"></i> Verde · Baja prioridad</span>
+                <span><i class="dot dot-blue"></i> Azul · No urgente</span>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- GLOBAL LAYOUT: Footer -->
+    <footer class="main-footer">
+        <div>SAGE · Sistema de Atención y Guardia de Emergencia ·</div>
+        <div>Sede central · Guardia y consultorios</div>
+    </footer>
+
+    <script src="../../../js/global.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,336 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Historia clínica de Laura Méndez · SAGE</title>
+    <!-- Referencia al CSS global y logos -->
+    <link rel="stylesheet" href="../../../css/global.css" />
+    <link rel="stylesheet" href="../css/demanda.css" />
+</head>
+
+<body class="sage-app">
+    <!-- GLOBAL LAYOUT: Topbar y Header -->
+    <div class="topbar">
+        <span class="topbar-context">SAGE · Gestión clínica hospitalaria</span>
+        <div class="topbar-info">
+            <span>26 de octubre de 2026 · 10:40</span> |
+            <span>Guardia de mañana · 08:00–16:00</span>
+        </div>
+    </div>
+
+    <header class="main-header">
+        <div class="logo">
+            <img src="../../../logos/logo1.png" alt="Logo SAGE" class="logo-img" />
+        </div>
+        <nav class="main-nav">
+            <a href="../html/demanda.html" class="nav-item active">Demanda espontánea</a>
+            <a href="../../triage/html/triage.html" class="nav-item">Triage</a>
+            <a href="../../recetas/html/recetas.html" class="nav-item">Recetas</a>
+            <a href="../../altas-egresos/html/altasEgresos.html" class="nav-item">Egresos</a>
+        </nav>
+        <!-- Menú de usuario -->
+        <div class="user-menu-container">
+            <div class="user-badge" id="btn-user-menu" style="cursor: pointer">
+                Dra. Inés Costa ▾
+            </div>
+
+            <!-- Desplegable oculto -->
+            <div class="user-dropdown" id="user-dropdown" style="display: none">
+                <div class="dropdown-header">
+                    <strong>Dra. Inés Costa</strong>
+                    <span class="text-muted" style="font-size: 0.75rem; display: block">Médica de guardia</span>
+                    <span class="text-muted" style="font-size: 0.75rem; display: block">MP 48.210</span>
+                </div>
+                <div class="dropdown-body">
+                    <!-- Ruta de vuelta al login -->
+                    <a href="../../autenticacion/html/login.html" class="btn-logout">Cerrar sesión</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="module-container">
+        <nav class="breadcrumbs">
+            SAGE &rsaquo; Demanda espontánea &rsaquo; Atención médica &rsaquo;
+            Historia clínica
+        </nav>
+
+        <header class="module-header" style="align-items: center">
+            <div class="header-titles">
+                <span class="subtitle">EXPEDIENTE · HC 004218</span>
+                <h1>Historia clínica</h1>
+                <p>
+                    Resumen longitudinal, antecedentes y documentación vinculada al
+                    paciente.
+                </p>
+            </div>
+            <!-- Botón para volver a la atención -->
+            <a href="../html/demandaFormulario.html"><button class="btn-secondary">Volver a atención</button></a>
+        </header>
+
+        <!-- BANNER DEL PACIENTE -->
+        <div class="patient-banner" style="background-color: #f9faf9">
+            <div class="avatar">LM</div>
+            <div class="patient-banner-info">
+                <h2>Laura Méndez</h2>
+                <p class="text-muted">34 años · DNI 36.742.518 · HC 004218</p>
+            </div>
+            <div class="patient-banner-encounter">
+                <strong>DE-2026-0412 · Demanda espontánea</strong>
+                <p class="text-muted">26/10/2026 · Ingreso 09:45 · Consultorio 3</p>
+            </div>
+            <div class="patient-banner-status">
+                <span class="badge badge-neutral" style="background-color: #eaf1ee; color: var(--primary-dark)">En
+                    atención</span>
+            </div>
+        </div>
+
+        <!-- LAYOUT PRINCIPAL -->
+        <div class="medical-layout" style="display: grid; grid-template-columns: 2.5fr 1fr; gap: 2rem">
+            <!-- COLUMNA IZQUIERDA -->
+            <div class="main-column">
+                <!-- RESUMEN CLÍNICO -->
+                <div class="form-card">
+                    <div class="form-card-header" style="
+                margin-bottom: 1rem;
+                border-bottom: none;
+                padding-bottom: 0;
+              ">
+                        <h2>Resumen clínico</h2>
+                        <span class="text-muted" style="font-size: 0.75rem">Actualizado · 26/10/2026</span>
+                    </div>
+
+                    <p style="
+                font-size: 0.875rem;
+                margin-bottom: 1.5rem;
+                line-height: 1.6;
+              ">
+                        Consulta actual por dolor lumbar de dos días de evolución,
+                        posterior a esfuerzo físico, sin irradiación. Sin fiebre,
+                        alteraciones esfinterianas ni pérdida de fuerza referidas.
+                    </p>
+
+                    <span class="text-muted"
+                        style="font-size: 0.75rem; display: block; margin-bottom: 0.25rem">Diagnóstico presuntivo del
+                        encuentro actual</span>
+                    <p style="font-size: 0.875rem; margin-bottom: 1.5rem">
+                        M54.5 - Dolor lumbar bajo - Episodio agudo
+                    </p>
+
+                    <p class="text-muted" style="font-size: 0.875rem; line-height: 1.6">
+                        Tratamiento sintomático y cuidados posturales en evaluación.
+                        Valoración por traumatología prevista; interconsulta aún no
+                        enviada.
+                    </p>
+                </div>
+
+                <!-- CRONOLOGÍA DE ATENCIONES -->
+                <div class="form-card">
+                    <div class="form-card-header" style="
+                margin-bottom: 1.5rem;
+                border-bottom: none;
+                padding-bottom: 0;
+              ">
+                        <h2>Cronología de atenciones</h2>
+                    </div>
+
+                    <!-- Item de Cronología 1 -->
+                    <div class="history-item">
+                        <div class="history-item-header">
+                            <span class="history-date text-primary">26/10/2026 · Atención actual</span>
+                            <span class="badge badge-cyan" style="background-color: #e0f2f1; color: #00695c">En atención
+                                · Borrador</span>
+                        </div>
+                        <h3 style="
+                  font-size: 1.125rem;
+                  font-weight: 400;
+                  margin-bottom: 0.5rem;
+                ">
+                            DE-2026-0412 · Medicina general
+                        </h3>
+                        <p class="text-muted" style="font-size: 0.875rem; margin-bottom: 1rem">
+                            Dra. Inés Costa - MP 48.210 - Inicio 10:12. Lumbalgia posterior
+                            a esfuerzo. Registro clínico pendiente de firma.
+                        </p>
+                        <a href="demandaFormulario.html"><button class="btn-secondary"
+                                style="font-size: 0.75rem; padding: 0.5rem 1rem">
+                                Consultar encuentro
+                            </button></a>
+                    </div>
+
+                    <hr style="
+                border: none;
+                border-top: 1px solid var(--border-color);
+                margin: 1.5rem 0;
+              " />
+
+                    <!-- Item de Cronología 2 -->
+                    <div class="history-item">
+                        <div class="history-item-header">
+                            <span class="history-date text-primary">14/06/2026 · Control histórico</span>
+                        </div>
+                        <p class="text-muted" style="font-size: 0.875rem">
+                            Medicina general - Control de salud. Sin hallazgos relevantes.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- DOCUMENTOS VINCULADOS -->
+                <div class="form-card">
+                    <div class="form-card-header" style="
+                margin-bottom: 1.5rem;
+                border-bottom: none;
+                padding-bottom: 0;
+              ">
+                        <h2>Documentos vinculados</h2>
+                        <span class="text-muted" style="font-size: 0.75rem">Encuentro actual</span>
+                    </div>
+
+                    <table class="sage-table" style="margin-bottom: 1.5rem">
+                        <thead>
+                            <tr>
+                                <th>Documento</th>
+                                <th>Contenido</th>
+                                <th>Estado</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>RX-2026-0281</td>
+                                <td>Prescripción - Dra. Inés Costa</td>
+                                <td>Borrador · Por firmar</td>
+                            </tr>
+                            <tr>
+                                <td>IC-2026-0071</td>
+                                <td>Traumatología - Dr. Javier Ruiz</td>
+                                <td>Borrador · Sin enviar</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="info-box-green">
+                        <strong style="color: #00695c">Documento pendiente</strong>
+                        <p>
+                            RX-2026-0281 aún no está firmada. La interconsulta IC-2026-0071
+                            permanece pendiente de envío.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- COLUMNA DERECHA: Sidebar -->
+            <div class="sidebar-column">
+                <!-- SEGURIDAD DEL PACIENTE -->
+                <div class="sidebar-card" style="background-color: #ebf3f1; border-color: #d1e3df">
+                    <h3 style="border-bottom: none; padding-bottom: 0">
+                        Seguridad del paciente
+                    </h3>
+                    <div class="mt-4">
+                        <strong style="
+                  display: block;
+                  color: var(--primary-dark);
+                  font-size: 0.75rem;
+                  margin-bottom: 1rem;
+                ">Alergia a penicilina</strong>
+                        <p style="
+                  font-size: 0.875rem;
+                  line-height: 1.5;
+                  margin-bottom: 1.5rem;
+                ">
+                            Exantema referido por la paciente. Verificado durante la
+                            anamnesis. Considerar al prescribir.
+                        </p>
+                        <p class="text-muted" style="font-size: 0.7rem">
+                            Identidad y antecedentes verificados - 26/10/2026
+                        </p>
+                    </div>
+                </div>
+
+                <!-- ANTECEDENTES -->
+                <div class="sidebar-card">
+                    <h3 style="
+                border-bottom: none;
+                padding-bottom: 0;
+                margin-bottom: 1.5rem;
+              ">
+                        Antecedentes
+                    </h3>
+
+                    <div class="antecedente-item" style="margin-bottom: 1.5rem">
+                        <span class="text-muted" style="
+                  display: block;
+                  font-size: 0.75rem;
+                  margin-bottom: 0.25rem;
+                ">Personales</span>
+                        <p style="font-size: 0.875rem">
+                            Sin enfermedades crónicas referidas.
+                        </p>
+                    </div>
+
+                    <div class="antecedente-item" style="margin-bottom: 1.5rem">
+                        <span class="text-muted" style="
+                  display: block;
+                  font-size: 0.75rem;
+                  margin-bottom: 0.25rem;
+                ">Quirúrgicos</span>
+                        <p style="font-size: 0.875rem">Apendicectomía en 2012.</p>
+                    </div>
+
+                    <div class="antecedente-item" style="margin-bottom: 1.5rem">
+                        <span class="text-muted" style="
+                  display: block;
+                  font-size: 0.75rem;
+                  margin-bottom: 0.25rem;
+                ">Familiares y hábitos</span>
+                        <p style="font-size: 0.875rem">
+                            Sin antecedentes familiares relevantes. No fuma.
+                        </p>
+                    </div>
+
+                    <div class="antecedente-item">
+                        <span class="text-muted" style="
+                  display: block;
+                  font-size: 0.75rem;
+                  margin-bottom: 0.25rem;
+                ">Medicación habitual</span>
+                        <p style="font-size: 0.875rem">No refiere medicación habitual.</p>
+                    </div>
+                </div>
+
+                <!-- ESTADO DEL ENCUENTRO -->
+                <div class="sidebar-card">
+                    <h3 style="
+                border-bottom: none;
+                padding-bottom: 0;
+                margin-bottom: 1rem;
+              ">
+                        Estado del encuentro
+                    </h3>
+                    <p style="
+                font-size: 0.875rem;
+                line-height: 1.5;
+                margin-bottom: 1.5rem;
+              ">
+                        Laura continúa en atención. La documentación del encuentro
+                        permanece en borrador.
+                    </p>
+                    <p class="text-muted" style="font-size: 0.75rem">
+                        EG-2026-0168 - Borrador de egreso, sin confirmación.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="main-footer">
+        <div>SAGE · Sistema de Atención y Guardia de Emergencia ·</div>
+        <div>Sede central · Guardia y consultorios</div>
+    </footer>
+
+    <script src="../../../js/global.js"></script>
+    
+</body>
+
+</html>

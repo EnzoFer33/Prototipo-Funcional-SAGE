@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Demanda espontánea — Finalizados · SAGE</title>
+    <!-- Referencia al CSS global (dos niveles arriba según la estructura) -->
+    <link rel="stylesheet" href="../../../css/global.css" />
+    <!-- Referencia al CSS de este módulo -->
+    <link rel="stylesheet" href="../css/demanda.css" />
+</head>
+
+<body class="sage-app">
+    <!-- GLOBAL LAYOUT: Topbar y Header -->
+    <div class="topbar">
+        <span class="topbar-context">SAGE · Gestión clínica hospitalaria</span>
+        <div class="topbar-info">
+            <span>26 de octubre de 2026 · 10:40</span> |
+            <span>Guardia de mañana · 08:00–16:00</span>
+        </div>
+    </div>
+
+    <header class="main-header">
+        <div class="logo">
+            <img src="../../../logos/logo1.png" alt="Logo SAGE" class="logo-img" />
+        </div>
+        <nav class="main-nav">
+            <a href="../../demanda-espontanea/html/demanda.html" class="nav-item active">Demanda espontánea</a>
+            <a href="../../triage/html/triage.html" class="nav-item">Triage</a>
+            <a href="../../recetas-prescripciones/html/recetas.html" class="nav-item">Recetas</a>
+            <a href="../../altas-egresos/html/altasEgresos.html" class="nav-item">Egresos</a>
+        </nav>
+        <!-- Menú de usuario -->
+        <div class="user-menu-container">
+            <div class="user-badge" id="btn-user-menu" style="cursor: pointer">
+                Dra. Inés Costa ▾
+            </div>
+
+            <!-- Desplegable oculto -->
+            <div class="user-dropdown" id="user-dropdown" style="display: none">
+                <div class="dropdown-header">
+                    <strong>Dra. Inés Costa</strong>
+                    <span class="text-muted" style="font-size: 0.75rem; display: block">Médica de guardia</span>
+                    <span class="text-muted" style="font-size: 0.75rem; display: block">MP 48.210</span>
+                </div>
+                <div class="dropdown-body">
+                    <!-- Ruta de vuelta al login -->
+                    <a href="../../autenticacion/html/login.html" class="btn-logout">Cerrar sesión</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN MODULE: Demanda Espontánea -->
+    <main class="module-container">
+        <nav class="breadcrumbs">
+            SAGE &rsaquo; Demanda espontánea &rsaquo; Finalizados
+        </nav>
+
+        <header class="module-header">
+            <div class="header-titles">
+                <span class="subtitle">RECEPCIÓN Y ATENCIÓN SIN TURNO</span>
+                <h1>Demanda espontánea</h1>
+                <p>
+                    Lista de espera, asignación de consultorio y seguimiento de los
+                    encuentros sin turno.
+                </p>
+            </div>
+            <a href="../html/demandaFormulario.html" class="btn-link">
+                <button class="btn-primary">Registrar ingreso</button>
+            </a>
+        </header>
+
+        <!-- TABS COMPONENT -->
+        <div class="tabs-container">
+            <a href="../html/demanda.html" class="tab-item">Lista de espera</a>
+            <a href="../html/enAtencion.html" class="tab-item">En atención</a>
+            <a href="../html/finalizados.html" class="tab-item active">Finalizados</a>
+        </div>
+
+        <!-- FILTERS COMPONENT (3 Columnas) -->
+        <section class="filters-bar filters-3-even">
+            <div class="form-group">
+                <label>Buscar paciente</label>
+                <input type="text" placeholder="Nombre, DNI o historia clínica" />
+            </div>
+            <div class="form-group">
+                <label>Fecha de cierre</label>
+                <select>
+                    <option>23/10/2026 – 25/10/2026</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Profesional</label>
+                <select>
+                    <option>Todos los profesionales</option>
+                </select>
+            </div>
+        </section>
+
+        <!-- DATA TABLE COMPONENT -->
+        <section class="data-section">
+            <div class="table-header-info">
+                <strong>3 encuentros finalizados en el período</strong>
+                <span class="text-muted">Ordenados por fecha de cierre · Más recientes primero</span>
+            </div>
+
+            <table class="sage-table">
+                <thead>
+                    <tr>
+                        <th>Paciente / encuentro</th>
+                        <th>Cierre</th>
+                        <th>Profesional</th>
+                        <th>Diagnóstico / tipo de egreso</th>
+                        <th>Estado</th>
+                        <th>Acción</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            Ana Beltrán · 45 años<br />
+                            <span class="text-muted">HC 003984 · DE-2026-0408</span>
+                        </td>
+                        <td>
+                            25/10/2026<br />
+                            14:20
+                        </td>
+                        <td>
+                            Dra. Inés Costa<br />
+                            MP 48.210
+                        </td>
+                        <td>
+                            Cefalea · R51<br />
+                            <span class="text-muted">Alta a domicilio</span>
+                        </td>
+                        <td><span class="badge badge-neutral">Finalizado</span></td>
+                        <td><a href="#" class="btn-link">Ver resumen</a></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Sergio Ponce · 52 años<br />
+                            <span class="text-muted">HC 002579 · DE-2026-0403</span>
+                        </td>
+                        <td>
+                            24/10/2026<br />
+                            12:15
+                        </td>
+                        <td>
+                            Dra. Inés Costa<br />
+                            MP 48.210
+                        </td>
+                        <td>
+                            Dolor cervical · M54.2<br />
+                            <span class="text-muted">Alta con control ambulatorio</span>
+                        </td>
+                        <td><span class="badge badge-neutral">Finalizado</span></td>
+                        <td><a href="#" class="btn-link">Ver resumen</a></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Lucía Funes · 28 años<br />
+                            <span class="text-muted">HC 005106 · DE-2026-0397</span>
+                        </td>
+                        <td>
+                            23/10/2026<br />
+                            11:05
+                        </td>
+                        <td>
+                            Dra. Inés Costa<br />
+                            MP 48.210
+                        </td>
+                        <td>
+                            Faringitis aguda · J02.9<br />
+                            <span class="text-muted">Alta a domicilio</span>
+                        </td>
+                        <td><span class="badge badge-neutral">Finalizado</span></td>
+                        <td><a href="#" class="btn-link">Ver resumen</a></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- Table Footer (Paginación) -->
+            <div class="table-footer-info">
+                <strong>Mostrando 3 de 3 encuentros</strong>
+                <span class="text-muted">Página 1 de 1</span>
+            </div>
+        </section>
+
+        <!-- INFO BOX COMPONENT -->
+        <div class="info-box-green">
+            <strong>Registros históricos de demostración</strong>
+            <p>
+                Los encuentros de este listado corresponden a fechas anteriores al
+                corte del 26/10/2026 a las 10:40. Los seis pacientes activos de la
+                demanda actual conservan su estado y no se incluyen como finalizados.
+            </p>
+        </div>
+
+        <p class="text-muted mt-4" style="font-size: 0.75rem">
+            Ver resumen permite consultar el cierre documentado del encuentro, sin
+            modificar la atención actual.
+        </p>
+    </main>
+
+    <!-- GLOBAL LAYOUT: Footer -->
+    <footer class="main-footer">
+        <div>SAGE · Sistema de Atención y Guardia de Emergencia ·</div>
+        <div>Sede central · Guardia y consultorios</div>
+    </footer>
+
+    <script src="../../../js/global.js"></script>
+    
+</body>
+
+</html>

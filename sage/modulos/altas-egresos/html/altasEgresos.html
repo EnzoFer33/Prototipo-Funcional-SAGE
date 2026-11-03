@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Altas y egresos - SAGE</title>
+    <link rel="stylesheet" href="../../../css/global.css">
+    <link rel="stylesheet" href="../css/altasEgresos.css">
+</head>
+
+<body class="sage-app">
+    <!-- GLOBAL LAYOUT: Topbar y Header -->
+    <div class="topbar">
+        <span class="topbar-context">SAGE · Gestión clínica hospitalaria</span>
+        <div class="topbar-info">
+            <span>26 de octubre de 2026 10:40</span> | <span>Guardia de mañana 08:00-16:00</span>
+        </div>
+    </div>
+
+    <header class="main-header">
+        <div class="logo">
+            <img src="../../../logos/logo1.png" alt="Logo SAGE" class="logo-img">
+        </div>
+        <nav class="main-nav">
+            <a href="../../demanda-espontanea/html/demanda.html" class="nav-item">Demanda espontánea</a>
+            <a href="../../triage/html/triage.html" class="nav-item">Triage</a>
+            <a href="../../recetas-prescripciones/html/recetas.html" class="nav-item">Recetas</a>
+            <a href="../../altas-egresos/html/altasEgresos.html" class="nav-item active">Egresos</a>
+        </nav>
+        <!-- Menú de usuario -->
+        <div class="user-menu-container">
+            <div class="user-badge" id="btn-user-menu" style="cursor: pointer;">
+                Dra. Inés Costa ▾
+            </div>
+
+            <!-- Desplegable oculto -->
+            <div class="user-dropdown" id="user-dropdown" style="display: none;">
+                <div class="dropdown-header">
+                    <strong>Dra. Inés Costa</strong>
+                    <span class="text-muted" style="font-size: 0.75rem; display: block;">Médica de guardia</span>
+                    <span class="text-muted" style="font-size: 0.75rem; display: block;">MP 48.210</span>
+                </div>
+                <div class="dropdown-body">
+                    <!-- Ruta de vuelta al login -->
+                    <a href="../../autenticacion/html/login.html" class="btn-logout">Cerrar sesión</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="module-container">
+        <header class="module-header">
+            <div class="header-titles">
+                <span class="subtitle">CIERRE DEL ENCUENTRO</span>
+                <h1>Altas y egresos</h1>
+                <p>Diagnóstico de egreso, indicaciones y continuidad de cuidados del paciente.</p>
+            </div>
+            <!-- Botón que dirige a la nueva vista de formulario -->
+            <a href="../../altas-egresos/html/prepararEgreso.html" class="btn-primary">Preparar egreso</a>
+        </header>
+
+        <!-- FILTROS (3 Columnas) -->
+        <section class="filters-bar filters-3-cols">
+            <div class="form-group">
+                <label>Buscar paciente</label>
+                <input type="text" placeholder="Nombre, DNI o encuentro">
+            </div>
+            <div class="form-group">
+                <label>Tipo de egreso</label>
+                <select>
+                    <option>Todos los tipos</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Estado</label>
+                <select>
+                    <option>Borradores y confirmados</option>
+                </select>
+            </div>
+        </section>
+
+        <!-- TABLA DE DATOS -->
+        <section class="data-section" id="tabla-egresos">
+            <table class="sage-table">
+                <thead>
+                    <tr>
+                        <th>Egreso / encuentro</th>
+                        <th>Paciente</th>
+                        <th>Diagnóstico</th>
+                        <th>Fecha</th>
+                        <th>Tipo | estado</th>
+                        <th>Acción</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>EG-2026-0168<br><span class="text-muted">DE-2026-0412</span></td>
+                        <td>Laura Méndez<br><span class="text-muted">HC 004218</span></td>
+                        <td>M54.5 - Dolor lumbar bajo</td>
+                        <td>Por confirmar</td>
+                        <td>Alta médica<br><span class="text-muted">Borrador</span></td>
+                        <td><a href="prepararEgreso.html" class="btn-link">Editar</a></td>
+                    </tr>
+                    <tr>
+                        <td>EG-2026-0167<br><span class="text-muted">AM-2026-0162</span></td>
+                        <td>Marta Molina<br><span class="text-muted">HC 001932</span></td>
+                        <td>I10 - Hipertensión esencial</td>
+                        <td>26/10 - 09:30</td>
+                        <td>Fin de consulta<br><span class="text-muted">Confirmado</span></td>
+                        <!-- Botón que activa la sección inferior -->
+                        <td><a href="#" class="btn-link btn-ver-informe">Ver informe</a></td>
+                    </tr>
+                    <tr>
+                        <td>EG-2026-0165<br><span class="text-muted">AM-2026-0183</span></td>
+                        <td>Nicolás Ferreyra<br><span class="text-muted">HC 003387</span></td>
+                        <td>M25.5 - Dolor articular</td>
+                        <td>26/10 - 08:55</td>
+                        <td>Fin de consulta<br><span class="text-muted">Confirmado</span></td>
+                        <td><a href="#" class="btn-link btn-ver-informe">Ver informe</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- SECCIÓN DE INFORME (Oculta por defecto) -->
+        <section id="seccion-informe" style="display: none; margin-top: 3rem;">
+            <!-- BANNER DEL PACIENTE -->
+            <div class="patient-banner" style="background-color: #f9faf9;">
+                <div class="avatar">MM</div>
+                <div class="patient-banner-info">
+                    <h2>Marta Molina</h2>
+                    <p class="text-muted">62 años DNI 12.345.678 HC 001932</p>
+                </div>
+                <div class="patient-banner-encounter">
+                    <strong>AM-2026-0162 Ambulatorio</strong>
+                    <p class="text-muted">26/10/2026 Ingreso 09:00 Consultorio 1</p>
+                </div>
+                <div class="patient-banner-status">
+                    <span class="badge badge-neutral"
+                        style="background-color: #eaf1ee; color: var(--primary-dark);">Finalizado</span>
+                </div>
+            </div>
+
+            <!-- LAYOUT A DOS COLUMNAS -->
+            <div class="medical-layout" style="display: grid; grid-template-columns: 2.5fr 1fr; gap: 2rem;">
+
+                <!-- COLUMNA IZQUIERDA -->
+                <div class="main-column">
+                    <div class="form-card">
+                        <div class="form-card-header"
+                            style="border-bottom: none; margin-bottom: 0.5rem; padding-bottom: 0;">
+                            <h2>Resumen de egreso</h2>
+                            <span class="text-muted" style="font-size: 0.75rem;">EG-2026-0167</span>
+                        </div>
+                        <div class="data-grid-2" style="margin-bottom: 1.5rem;">
+                            <div>
+                                <span class="text-muted" style="font-size: 0.75rem; display: block;">Diagnóstico de
+                                    egreso</span>
+                                <strong>I10 - Hipertensión esencial</strong>
+                            </div>
+                            <div></div>
+                            <div>
+                                <span class="text-muted" style="font-size: 0.75rem; display: block;">Tipo de
+                                    egreso</span>
+                                <span>Fin de consulta</span>
+                            </div>
+                            <div>
+                                <span class="text-muted" style="font-size: 0.75rem; display: block;">Destino</span>
+                                <span>Domicilio</span>
+                            </div>
+                            <div>
+                                <span class="text-muted" style="font-size: 0.75rem; display: block;">Fecha y hora
+                                    confirmadas</span>
+                                <span>26/10/2026 - 09:30</span>
+                            </div>
+                            <div>
+                                <span class="text-muted" style="font-size: 0.75rem; display: block;">Responsable</span>
+                                <span>Dra. Elena Martín - MP 65.421</span>
+                            </div>
+                        </div>
+                        <div>
+                            <span class="text-muted" style="font-size: 0.75rem; display: block;">Resumen clínico y
+                                condición al egreso</span>
+                            <p style="font-size: 0.875rem; line-height: 1.5;">Consulta de seguimiento por hipertensión
+                                arterial. Paciente lúcida, orientada y clínicamente estable al finalizar la consulta,
+                                sin síntomas agudos referidos. Continúa seguimiento ambulatorio.</p>
+                        </div>
+                    </div>
+
+                    <div class="form-card">
+                        <div class="form-card-header"
+                            style="border-bottom: none; margin-bottom: 0.5rem; padding-bottom: 0;">
+                            <h2>Indicaciones y seguimiento</h2>
+                        </div>
+                        <div style="margin-bottom: 1.5rem;">
+                            <span class="text-muted" style="font-size: 0.75rem; display: block;">Cuidados y
+                                recomendaciones</span>
+                            <p style="font-size: 0.875rem; line-height: 1.5;">Mantener los cuidados acordados durante la
+                                consulta, reducir el consumo de sal y realizar actividad física adaptada a la
+                                tolerancia. Registrar la presión arterial domiciliaria para el próximo control.</p>
+                        </div>
+                        <div style="margin-bottom: 1.5rem;">
+                            <span class="text-muted" style="font-size: 0.75rem; display: block;">Tratamiento
+                                indicado</span>
+                            <p style="font-size: 0.875rem; line-height: 1.5;">Consultar la receta firmada RX-2026-0280
+                                vinculada a este encuentro. El detalle de la medicación se encuentra en la prescripción.
+                            </p>
+                        </div>
+                        <div style="margin-bottom: 1.5rem;">
+                            <span class="text-muted" style="font-size: 0.75rem; display: block;">Continuidad
+                                asistencial</span>
+                            <p style="font-size: 0.875rem; line-height: 1.5;">Coordinar control ambulatorio con
+                                cardiología y llevar el registro de presión arterial. No modificar el tratamiento por
+                                cuenta propia.</p>
+                        </div>
+                        <div>
+                            <span class="text-muted" style="font-size: 0.75rem; display: block;">Pautas de
+                                consulta</span>
+                            <p style="font-size: 0.875rem; line-height: 1.5;">Acudir a guardia ante dolor torácico,
+                                dificultad respiratoria, debilidad súbita o alteraciones del habla o de la visión.</p>
+                        </div>
+                    </div>
+                    <!-- NUEVO BOTÓN PARA CERRAR EL INFORME -->
+                    <div class="form-actions-footer mt-4"
+                        style="display: flex; justify-content: flex-start; margin-bottom: 2rem;">
+                        <button class="btn-secondary btn-cerrar-informe" style="padding: 0.875rem 2rem;">Cerrar
+                            informe</button>
+                    </div>
+                </div>
+
+                <!-- COLUMNA DERECHA -->
+                <div class="sidebar-column">
+                    <div class="sidebar-card">
+                        <h3 style="border-bottom: none; padding-bottom: 0; margin-bottom: 1rem;">Documentación vinculada
+                        </h3>
+
+                        <span class="badge badge-neutral mb-2"
+                            style="background-color: #eaf1ee; color: var(--primary-dark);">Receta firmada</span>
+                        <div style="margin-bottom: 1rem;">
+                            <span class="text-muted" style="font-size: 0.75rem; display: block;">Prescripción</span>
+                            <strong style="font-size: 0.875rem;">RX-2026-0280</strong>
+                        </div>
+                        <div style="margin-bottom: 1.5rem;">
+                            <span class="text-muted" style="font-size: 0.75rem; display: block;">Encuentro</span>
+                            <span style="font-size: 0.875rem;">AM-2026-0162 - Marta Molina</span>
+                        </div>
+                        <button class="btn-secondary" style="font-size: 0.75rem; padding: 0.5rem 1rem;">Consultar
+                            receta</button>
+                    </div>
+
+                    <div class="sidebar-card">
+                        <h3 style="border-bottom: none; padding-bottom: 0; margin-bottom: 1rem;">Impresión y entrega
+                        </h3>
+                        <p style="font-size: 0.875rem; line-height: 1.5; margin-bottom: 1.5rem;">Informe confirmado
+                            disponible para impresión y entrega al paciente.</p>
+                        <button class="btn-primary" style="width: 100%; margin-bottom: 0.5rem;">Vista de
+                            impresión</button>
+                        <button class="btn-secondary" style="width: 100%;">Preparar entrega</button>
+                        <p class="text-muted mt-4" style="font-size: 0.65rem;">Entrega al paciente no registrada en esta
+                            visita.</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div>SAGE - Sistema de Atención y Guardia de Emergencia</div>
+        <div>Sede central - Guardia y consultorios</div>
+    </footer>
+
+    <script src="../js/altasEgresos.js"></script>
+    <script src="../../../js/global.js"></script>
+</body>
+
+</html>

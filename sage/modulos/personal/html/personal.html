@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal de guardia - SAGE</title>
+    <link rel="stylesheet" href="../../../css/global.css">
+    <link rel="stylesheet" href="../css/personal.css">
+</head>
+<body class="sage-app">
+    <!-- GLOBAL LAYOUT: Topbar y Header (Vista Administrador) -->
+    <div class="topbar">
+        <span class="topbar-context">SAGE Gestión clínica hospitalaria</span>
+        <div class="topbar-info">
+            <span>26 de octubre de 2026 10:40</span> | <span>Guardia de mañana 08:00-16:00</span>
+        </div>
+    </div>
+
+    <header class="main-header">
+        <div class="logo">
+            <img src="../../../logos/logo1.png" alt="Logo SAGE" class="logo-img">
+        </div>
+        <nav class="main-nav">
+            <!-- Menú restringido para Administrador -->
+            <a href="personal.html" class="nav-item active">Personal</a>
+        </nav>
+       <!-- Menú de usuario -->
+        <div class="user-menu-container">
+            <div class="user-badge" id="btn-user-menu" style="cursor: pointer;">
+                Administración ▾
+            </div>
+            
+            <!-- Desplegable oculto -->
+            <div class="user-dropdown" id="user-dropdown" style="display: none;">
+                <div class="dropdown-header">
+                    <strong>Administración SAGE</strong>
+                    <span class="text-muted" style="font-size: 0.75rem; display: block;">Gestión de personal y accesos</span>
+                </div>
+                <div class="dropdown-body">
+                    <!-- Ruta de vuelta al login -->
+                    <a href="../../autenticacion/html/login.html" class="btn-logout">Cerrar sesión</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="module-container">
+        <nav class="breadcrumbs">
+            SAGE > Personal > Personal de guardia
+        </nav>
+        <header class="module-header">
+            <div class="header-titles">
+                <span class="subtitle">EQUIPO ASISTENCIAL</span>
+                <h1>Personal de guardia</h1>
+                <p>Roles, especialidades, habilitaciones y disponibilidad del equipo durante el turno.</p>
+            </div>
+            <!-- Botón hacia el nuevo registro -->
+            <a href="registrarPersonal.html" class="btn-primary">Registrar profesional</a>
+        </header>
+
+        <!-- FILTROS (4 Columnas) -->
+        <section class="filters-bar filters-4-cols">
+            <div class="form-group">
+                <label>Nombre o matrícula</label>
+                <input type="text" placeholder="Buscar profesional">
+            </div>
+            <div class="form-group">
+                <label>Especialidad</label>
+                <select><option>Todas las especialidades</option></select>
+            </div>
+            <div class="form-group">
+                <label>Disponibilidad</label>
+                <select><option>Todos los estados</option></select>
+            </div>
+            <div class="form-group">
+                <label>Turno</label>
+                <select><option>Mañana - 08-16 h</option></select>
+            </div>
+        </section>
+
+        <!-- INFO BAR SUPERIOR -->
+        <div class="table-header-info">
+            <strong>5 profesionales de guardia - 2 disponibles - 3 en atención</strong>
+            <span class="text-muted">26/10/2026 - Sede central</span>
+        </div>
+
+        <!-- GRILLA DE TARJETAS DE PROFESIONALES -->
+        <section class="profile-cards-grid mt-2 mb-4">
+            <!-- Tarjeta 1 -->
+            <div class="profile-card">
+                <div class="profile-img-container" style="background-color: #e0e0e0;">
+                    <!-- Placeholder de imagen (puedes reemplazar src con fotos reales) -->
+                    <div style="height: 160px; display: flex; align-items: center; justify-content: center; color: #888;">Foto 1</div>
+                </div>
+                <div class="profile-card-body">
+                    <span class="specialty-label">CARDIOLOGÍA</span>
+                    <h3>Dra. Elena Martín</h3>
+                    <p class="role-text">Médica de guardia - MP 65.421</p>
+                    <p class="details-text text-muted">Habilitación vigente - Hasta 31/12/2026<br>Consultorio 4 - Interno 204</p>
+                    <div class="profile-actions">
+                        <span class="badge badge-green">Disponible</span>
+                        <a href="#" class="btn-link btn-ver-ficha">Ver ficha</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tarjeta 2 -->
+            <div class="profile-card">
+                <div class="profile-img-container" style="background-color: #e0e0e0;">
+                    <div style="height: 160px; display: flex; align-items: center; justify-content: center; color: #888;">Foto 2</div>
+                </div>
+                <div class="profile-card-body">
+                    <span class="specialty-label">TRAUMATOLOGÍA</span>
+                    <h3>Dr. Javier Ruiz</h3>
+                    <p class="role-text">Médico interconsultor - MP 58.732</p>
+                    <p class="details-text text-muted">Habilitación vigente - Hasta 31/12/2026<br>Consultorio 6 - Interno 206</p>
+                    <div class="profile-actions">
+                        <span class="badge badge-green">Disponible</span>
+                        <a href="#" class="btn-link btn-ver-ficha">Ver ficha</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tarjeta 3 -->
+            <div class="profile-card">
+                <div class="profile-img-container" style="background-color: #e0e0e0;">
+                    <div style="height: 160px; display: flex; align-items: center; justify-content: center; color: #888;">Foto 3</div>
+                </div>
+                <div class="profile-card-body">
+                    <span class="specialty-label">MEDICINA INTERNA</span>
+                    <h3>Dr. Pablo Serrano</h3>
+                    <p class="role-text">Médico de guardia - MP 59.946</p>
+                    <p class="details-text text-muted">Habilitación vigente - Hasta 31/12/2026<br>Consultorio 5 - Interno 205</p>
+                    <div class="profile-actions">
+                        <span class="badge badge-neutral" style="background-color: #eaf1ee; color: var(--primary-dark);">En consulta</span>
+                        <a href="#" class="btn-link btn-ver-ficha">Ver ficha</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TABLA DE DEMANDA ESPONTÁNEA Y TRIAGE -->
+        <div class="form-card mb-4" style="padding: 1.5rem;">
+            <div class="form-card-header" style="margin-bottom: 1rem; border-bottom: none; padding-bottom: 0;">
+                <h2 style="font-size: 1.25rem;">Equipo de demanda espontánea y triage</h2>
+                <span class="text-muted" style="font-size: 0.75rem;">Mismo turno - 08:00-16:00</span>
+            </div>
+            <table class="sage-table">
+                <thead>
+                    <tr>
+                        <th>Profesional</th>
+                        <th>Rol / especialidad</th>
+                        <th>Matrícula</th>
+                        <th>Habilitación</th>
+                        <th>Destino</th>
+                        <th>Disponibilidad</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Dra. Inés Costa</strong></td>
+                        <td>Médica de guardia<br><span class="text-muted">Medicina general</span></td>
+                        <td>MP 48.210</td>
+                        <td>Vigente - 31/12/2026</td>
+                        <td>Consultorio 3<br><span class="text-muted">Interno 203</span></td>
+                        <td><span class="badge badge-neutral" style="background-color: #eaf1ee; color: var(--primary-dark);">En atención</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Lic. Tomás Vidal</strong></td>
+                        <td>Enfermero de triage<br><span class="text-muted">Enfermería de urgencias</span></td>
+                        <td>MN 18.730</td>
+                        <td>Vigente - 31/12/2026</td>
+                        <td>Box de triage 1<br><span class="text-muted">Interno 211</span></td>
+                        <td><span class="badge badge-green">En evaluación</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- SECCIÓN OCULTA: FICHA DEL PROFESIONAL -->
+        <section id="seccion-ficha" style="display: none; padding-top: 1rem; border-top: 1px dashed var(--border-color); margin-top: 2rem;">
+            <div class="medical-layout" style="display: grid; grid-template-columns: 2.5fr 1fr; gap: 2rem;">
+                <!-- COLUMNA IZQUIERDA -->
+                <div class="main-column">
+                    <div class="form-card">
+                        <div class="form-card-header">
+                            <h2>Ficha del profesional</h2>
+                            <span class="text-muted" style="font-size: 0.75rem;">Dr. Pablo Serrano</span>
+                        </div>
+                        <div class="form-grid-2">
+                            <div class="form-group">
+                                <label>Nombre y apellido *</label>
+                                <input type="text" value="Pablo Serrano">
+                            </div>
+                            <div class="form-group">
+                                <label>Documento *</label>
+                                <input type="text" value="DNI 23.905.641">
+                            </div>
+                            <div class="form-group">
+                                <label>Rol *</label>
+                                <select><option>Médico de guardia</option></select>
+                            </div>
+                            <div class="form-group">
+                                <label>Especialidad *</label>
+                                <select><option>Medicina interna</option></select>
+                            </div>
+                            <div class="form-group">
+                                <label>Matrícula profesional *</label>
+                                <input type="text" value="MP 59.946">
+                            </div>
+                            <div class="form-group">
+                                <label>Habilitación *</label>
+                                <select><option>Vigente - Vencimiento 31/12/2026</option></select>
+                            </div>
+                            <div class="form-group">
+                                <label>Disponibilidad *</label>
+                                <select><option>En consulta</option></select>
+                            </div>
+                            <div class="form-group">
+                                <label>Destino / contacto</label>
+                                <input type="text" value="Consultorio 5 - Interno 205">
+                            </div>
+                        </div>
+                        <div class="mt-4" style="display: flex; gap: 1rem;">
+                            <button class="btn-primary btn-cerrar-ficha">Guardar cambios</button>
+                            <button class="btn-secondary btn-cerrar-ficha">Ver habilitación</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- COLUMNA DERECHA -->
+                <div class="sidebar-column">
+                    <div class="sidebar-card" style="background-color: #ebf3f1; border-color: #d1e3df;">
+                        <h3 style="border-bottom: none; padding-bottom: 0; margin-bottom: 1rem;">Asignación actual</h3>
+                        <span class="badge badge-neutral mb-4" style="background-color: #eaf1ee; color: var(--primary-dark);">En consulta</span>
+                        <strong style="display: block; font-size: 0.875rem; margin-bottom: 0.5rem;">Roberto Salas - HC 002846</strong>
+                        <p style="font-size: 0.875rem; line-height: 1.5;" class="text-muted">AM-2026-0184 - Inicio 10:05<br>Seguimiento de hipertensión arterial<br>Consultorio 5</p>
+                    </div>
+
+                    <div class="sidebar-card">
+                        <h3 style="border-bottom: none; padding-bottom: 0; margin-bottom: 1rem;">Contacto de guardia</h3>
+                        <p style="font-size: 0.875rem; line-height: 1.5; margin-bottom: 1rem;">p.serrano@sage.example<br>Interno 205 - Sede central</p>
+                        <p class="text-muted" style="font-size: 0.7rem; line-height: 1.4;">Turno: 26/10/2026 - 08:00-16:00<br>Matrícula y habilitación verificadas para el turno.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="../js/personal.js"></script>
+    <script src="../../../js/global.js"></script>
+</body>
+</html>

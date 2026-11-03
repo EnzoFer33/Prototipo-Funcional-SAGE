@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar sesión - SAGE</title>
+    <link rel="stylesheet" href="../../../css/global.css">
+    <link rel="stylesheet" href="../css/autenticacion.css">
+</head>
+<body>
+
+    <div class="auth-wrapper">
+        <div class="auth-card">
+            <span class="subtitle">ACCESO PROFESIONAL</span>
+            <h1>Iniciar sesión</h1>
+            <p class="description">Ingresá con tu cuenta institucional para acceder al entorno clínico SAGE.</p>
+            
+            <form id="login-form">
+                <div class="form-group">
+                    <label for="username">Usuario o correo electrónico</label>
+                    <input type="text" id="username" placeholder="Correo electrónico" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">Contraseña</label>
+                    <input type="password" id="password" placeholder="Contraseña" required>
+                </div>
+                
+                <div class="options-row">
+                    <label class="checkbox-group">
+                        <input type="checkbox" name="remember">
+                        Recordar sesión
+                    </label>
+                    <a href="recuperarClave.html" class="auth-link">¿Olvidaste tu contraseña?</a>
+                </div>
+                
+                <!-- Quitamos la etiqueta <a> que envolvía al botón -->
+                <button type="submit" class="btn-submit">Ingresar</button>
+            </form>
+            
+         <p class="disclaimer">Acceso exclusivo para personal autorizado. Protegé la confidencialidad de la información clínica.</p>
+        </div>
+
+        <div class="help-link">
+            <span class="help-icon">?</span>
+            ¿Necesitás ayuda? Contactá a soporte de sistemas.
+        </div>
+    </div>
+
+    <div class="auth-bottom-section">
+        <div class="logo">
+            <img src="../../../logos/logo2.png" alt="Logo SAGE" class="logo-img" />
+        </div>
+        <div class="auth-footer-info">
+            Gestión clínica hospitalaria · Sede central
+        </div>
+    </div>
+
+    <footer class="auth-footer-bar">
+        <div>SAGE · Sistema de Atención y Guardia de Emergencia ·</div>
+        <div>Sede central · Guardia y consultorios</div>
+    </footer>
+
+    <!-- Vinculamos el nuevo script de autenticación -->
+    <script src="../js/autenticacion.js"></script>
+</body>
+</html>

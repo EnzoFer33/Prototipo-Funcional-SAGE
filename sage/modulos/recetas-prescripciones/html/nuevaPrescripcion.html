@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nueva prescripción — SAGE</title>
+    <link rel="stylesheet" href="../../../css/global.css">
+    <link rel="stylesheet" href="../css/recetas.css">
+</head>
+
+<body class="sage-app">
+
+    <!-- GLOBAL LAYOUT: Topbar y Header -->
+    <div class="topbar">
+        <span class="topbar-context">SAGE · Gestión clínica hospitalaria</span>
+        <div class="topbar-info">
+            <span>26 de octubre de 2026 · 10:40</span> | <span>Guardia de mañana · 08:00–16:00</span>
+        </div>
+    </div>
+
+    <header class="main-header">
+        <div class="logo">
+            <img src="../../../logos/logo1.png" alt="Logo SAGE" class="logo-img">
+        </div>
+        <nav class="main-nav">
+            <!-- Menú restringido al rol Demanda -->
+            <a href="../../demanda-espontanea/html/demanda.html" class="nav-item">Demanda espontánea</a>
+            <a href="../../triage/html/triage.html" class="nav-item">Triage</a>
+            <a href="../html/recetas.html" class="nav-item active">Recetas</a>
+            <a href="../../altas-egresos/html/altasEgresos.html" class="nav-item">Egresos</a>
+        </nav>
+        <!-- Menú de usuario -->
+        <div class="user-menu-container">
+            <div class="user-badge" id="btn-user-menu" style="cursor: pointer;">
+                Dra. Inés Costa ▾
+            </div>
+
+            <!-- Desplegable oculto -->
+            <div class="user-dropdown" id="user-dropdown" style="display: none;">
+                <div class="dropdown-header">
+                    <strong>Dra. Inés Costa</strong>
+                    <span class="text-muted" style="font-size: 0.75rem; display: block;">Médica de guardia</span>
+                    <span class="text-muted" style="font-size: 0.75rem; display: block;">MP 48.210</span>
+                </div>
+                <div class="dropdown-body">
+                    <!-- Ruta de vuelta al login -->
+                    <a href="../../autenticacion/html/login.html" class="btn-logout">Cerrar sesión</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN MODULE -->
+    <main class="module-container">
+
+        <nav class="breadcrumbs">
+            SAGE &rsaquo; Recetas &rsaquo; Nueva prescripción
+        </nav>
+
+        <header class="module-header">
+            <div class="header-titles">
+                <span class="subtitle">TRATAMIENTO Y CONTINUIDAD · ALTA DE RECETA</span>
+                <h1>Nueva prescripción</h1>
+                <p id="header-desc">Seleccioná un paciente y un encuentro activo antes de completar la prescripción.</p>
+            </div>
+        </header>
+
+        <!-- INDICADOR DE PASOS -->
+        <div class="steps-indicator">
+            <div class="step-item active" id="indicator-step-1">
+                <strong>1</strong> · Paciente y medicamentos
+            </div>
+            <div class="step-item text-muted" id="indicator-step-2">
+                <strong>2</strong> · Formulario y revisión
+            </div>
+            <div class="step-badge-right">
+                <span class="badge badge-cyan" style="background-color: #e0f2f1; color: #00695c;">Nueva · Sin número
+                    definitivo</span>
+            </div>
+        </div>
+
+        <!-- ==========================================
+             PASO 1: SELECCIÓN Y LISTADO
+             ========================================== -->
+        <section id="paso-1">
+
+            <!-- FORMULARIO DE SELECCIÓN -->
+            <div class="form-card mb-4">
+                <div class="form-card-header" style="border-bottom: none; margin-bottom: 0;">
+                    <h2>Paciente y encuentro</h2>
+                </div>
+
+                <div class="form-grid-2">
+                    <div class="form-group">
+                        <label>Paciente *</label>
+                        <select>
+                            <option>Laura Méndez - HC 004218 - DNI 36.742.518</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Encuentro activo *</label>
+                        <select>
+                            <option>DE-2026-0412 - Demanda espontánea - En atención</option>
+                        </select>
+                    </div>
+                </div>
+                <p class="text-muted" style="font-size: 0.75rem; margin-top: 1rem;">Identificá al paciente y verificá
+                    que el encuentro seleccionado corresponda a la atención actual.</p>
+            </div>
+
+            <!-- BANNER DEL PACIENTE -->
+            <div class="patient-banner">
+                <div class="avatar">LM</div>
+                <div class="patient-banner-info">
+                    <h2>Laura Méndez</h2>
+                    <p class="text-muted">34 años · DNI 36.742.518 · HC 004218</p>
+                </div>
+                <div class="patient-banner-encounter">
+                    <strong>DE-2026-0412 · Demanda espontánea</strong>
+                    <p class="text-muted">26/10/2026 · Ingreso 09:45 · Consultorio 3</p>
+                </div>
+                <div class="patient-banner-status">
+                    <span class="badge badge-neutral" style="background-color: #eaf1ee; color: var(--primary-dark);">En
+                        atención</span>
+                </div>
+            </div>
+
+            <!-- TABLA DE MEDICAMENTOS -->
+            <div class="table-header-info mt-4">
+                <strong style="color: var(--text-main);">Medicamentos a incorporar · 1 ejemplo</strong>
+                <button class="btn-secondary" style="font-size: 0.75rem; padding: 0.5rem 1rem;">Agregar
+                    medicamento</button>
+            </div>
+            <p class="text-muted mb-4" style="font-size: 0.75rem;">Selección de demostración · Sin guardar · Sin firma
+                profesional</p>
+
+            <table class="sage-table mb-4">
+                <thead>
+                    <tr>
+                        <th>Principio activo</th>
+                        <th>Presentación</th>
+                        <th>Dosis / vía</th>
+                        <th>Frecuencia</th>
+                        <th>Duración</th>
+                        <th>Cantidad</th>
+                        <th>Acción</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Paracetamol</td>
+                        <td>Comprimidos de 500 mg</td>
+                        <td>500 mg - Oral</td>
+                        <td>Cada 8 horas</td>
+                        <td>3 días</td>
+                        <td>9 comprimidos</td>
+                        <td><a href="#" class="btn-link">Editar / Quitar</a></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- INFO BOX VERDE -->
+            <div class="info-box-green">
+                <strong>Receta nueva - Borrador sin guardar</strong>
+                <p>Este ejemplo no tiene número definitivo ni firma y no se ha persistido. Es una nueva prescripción; no
+                    modifica ni reemplaza RX-2026-0281. Las indicaciones se revisan en el formulario antes de emitir una
+                    receta.</p>
+            </div>
+
+            <!-- BOTONES PASO 1 -->
+            <div class="form-actions-footer mt-4 mb-4">
+                <button id="btn-continuar-paso-2" class="btn-primary" style="padding: 0.875rem 2rem;">Continuar</button>
+                <a href="recetas.html"><button class="btn-secondary" style="padding: 0.875rem 2rem;">Guardar
+                        borrador</button></a>
+                <a href="recetas.html"><button class="btn-secondary"
+                        style="padding: 0.875rem 2rem;">Cancelar</button></a>
+            </div>
+            <br>
+            <p class="text-muted" style="font-size: 0.75rem;">Vista estática de creación. La selección y los controles
+                no guardan información ni emiten recetas.</p>
+
+        </section>
+
+        <!-- ==========================================
+             PASO 2: FORMULARIO Y REVISIÓN
+             ========================================== -->
+        <section id="paso-2" style="display: none;">
+
+            <!-- BANNER DEL PACIENTE (Replicado) -->
+            <div class="patient-banner mt-4">
+                <div class="avatar">LM</div>
+                <div class="patient-banner-info">
+                    <h2>Laura Méndez</h2>
+                    <p class="text-muted">34 años · DNI 36.742.518 · HC 004218</p>
+                </div>
+                <div class="patient-banner-encounter">
+                    <strong>DE-2026-0412 · Demanda espontánea</strong>
+                    <p class="text-muted">26/10/2026 · Ingreso 09:45 · Consultorio 3</p>
+                </div>
+                <div class="patient-banner-status">
+                    <span class="badge badge-neutral" style="background-color: #eaf1ee; color: var(--primary-dark);">En
+                        atención</span>
+                </div>
+            </div>
+
+            <!-- ALERTA DE ALERGIA -->
+            <div class="alert-box alert-warning mb-4">
+                <strong>Alergia a penicilina - Exantema referido por la paciente</strong>
+                <p>Considerar al prescribir. La revisión debe confirmarse para esta nueva prescripción, aunque figure
+                    verificada en la anamnesis.</p>
+                <label class="checkbox-container mt-2">
+                    <input type="checkbox" id="chk-alergias"> Confirmo que revisé las alergias para esta prescripción *
+                </label>
+            </div>
+
+            <div class="medical-layout" style="display: grid; grid-template-columns: 2.5fr 1fr; gap: 2rem;">
+
+                <!-- COLUMNA IZQUIERDA: Formulario -->
+                <div class="main-column">
+
+                    <!-- AGREGAR MEDICAMENTO -->
+                    <div class="form-card">
+                        <div class="form-card-header">
+                            <h2>Agregar medicamento</h2>
+                            <span class="text-muted" style="font-size: 0.75rem;">Campos obligatorios * - Datos de
+                                demostración para una receta nueva, sin número definitivo y sin guardar.</span>
+                        </div>
+
+                        <div class="form-grid-2">
+                            <div class="form-group">
+                                <label>Principio activo *</label>
+                                <select>
+                                    <option>Paracetamol</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Presentación *</label>
+                                <select>
+                                    <option>Comprimidos de 500 mg</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-grid-3">
+                            <div class="form-group">
+                                <label>Dosis por toma *</label>
+                                <input type="text" value="500 mg - 1 comprimido">
+                            </div>
+                            <div class="form-group">
+                                <label>Vía *</label>
+                                <select>
+                                    <option>Oral</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Frecuencia *</label>
+                                <select>
+                                    <option>Cada 8 horas</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-grid-3">
+                            <div class="form-group">
+                                <label>Duración *</label>
+                                <input type="text" value="3 días">
+                            </div>
+                            <div class="form-group">
+                                <label>Inicio previsto *</label>
+                                <input type="text" value="26/10/2026">
+                            </div>
+                            <div class="form-group">
+                                <label>Cantidad total *</label>
+                                <input type="text" value="9 comprimidos">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Indicación / diagnóstico *</label>
+                            <input type="text" value="Dolor lumbar bajo - M54.5">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Indicaciones adicionales</label>
+                            <textarea
+                                rows="2">No asociar con otros productos que contengan paracetamol. Indicaciones sujetas a revisión y firma del profesional tratante.</textarea>
+                        </div>
+
+                        <div class="form-grid-2">
+                            <div class="form-group">
+                                <label>Profesional responsable *</label>
+                                <input type="text" value="Dra. Inés Costa - MP 48.210" disabled
+                                    style="background-color: #f9faf9;">
+                            </div>
+                            <div class="form-group">
+                                <label>Fecha de emisión prevista *</label>
+                                <input type="text" value="26/10/2026" disabled style="background-color: #f9faf9;">
+                            </div>
+                        </div>
+
+                        <button class="btn-secondary mt-2" style="font-size: 0.75rem; padding: 0.5rem 1rem;">Agregar a
+                            la prescripción</button>
+                    </div>
+
+                    <!-- MEDICAMENTOS DE LA NUEVA PRESCRIPCIÓN -->
+                    <div class="form-card">
+                        <div class="form-card-header"
+                            style="border-bottom: none; padding-bottom: 0; margin-bottom: 1rem;">
+                            <h2>Medicamentos de la nueva prescripción</h2>
+                        </div>
+
+                        <span class="badge badge-cyan mb-2" style="display: inline-block;">1 medicamento de demostración
+                            - Sin guardar</span>
+
+                        <table class="sage-table mt-4 mb-4">
+                            <thead>
+                                <tr>
+                                    <th>Medicamento</th>
+                                    <th>Dosis / vía</th>
+                                    <th>Frecuencia</th>
+                                    <th>Duración / cantidad</th>
+                                    <th>Acción</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Paracetamol<br>500 mg</td>
+                                    <td>500 mg - Oral</td>
+                                    <td>Cada 8 horas</td>
+                                    <td>3 días<br>9 comprimidos</td>
+                                    <td><a href="#" class="btn-link">Editar / Quitar</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p class="text-muted" style="font-size: 0.75rem;">Contenido ilustrativo no persistido. No
+                            modifica RX-2026-0281.</p>
+                    </div>
+
+                    <!-- BOTONES ACCIÓN FINAL -->
+                    <div class="form-actions-footer mt-4 mb-4">
+                        <a href="../html/recetas.html"><button class="btn-secondary"
+                                style="padding: 0.875rem 2rem;">Guardar borrador</button></a>
+                        <a href="../html/recetas.html"><button class="btn-primary" style="padding: 0.875rem 2rem;"
+                                id="btn-firmar-final" disabled style="opacity:0.5;">Firmar prescripción</button></a>
+                        <a href="../html/recetas.html"><button class="btn-secondary"
+                                style="padding: 0.875rem 2rem;">Cancelar</button></a>
+                    </div>
+                    <br>
+                    <p class="text-muted" style="font-size: 0.75rem;">Firma no disponible en este estado de ejemplo:
+                        falta confirmar la revisión de alergias. Los controles representan una UI estática y no emiten
+                        recetas.</p>
+
+                </div>
+
+                <!-- COLUMNA DERECHA: Sidebar -->
+                <div class="sidebar-column">
+
+                    <!-- VISTA PREVIA RECETA -->
+                    <div class="sidebar-card recipe-preview">
+                        <div
+                            style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+                            <h3 style="border-bottom: none; margin: 0; padding: 0;">Vista previa de receta</h3>
+                        </div>
+
+                        <div class="preview-header">
+                            <span
+                                style="font-size: 1.25rem; font-weight: 600; letter-spacing: 0.1em; color: var(--primary-dark);">SAGE</span>
+                            <span class="badge badge-cyan" style="font-size: 0.65rem;">Sin firmar</span>
+                        </div>
+
+                        <div class="preview-content">
+                            <p class="text-muted mb-2">Nueva prescripción - Sin número definitivo 26/10/2026</p>
+
+                            <strong>Laura Méndez</strong>
+                            <p class="text-muted">DNI 36.742.518 - HC 004218 DE-2026-0412 - Demanda espontánea</p>
+
+                            <hr class="preview-divider">
+
+                            <strong>Paracetamol 500 mg</strong>
+                            <p>Tomar 1 comprimido por vía oral cada 8 horas, durante 3 días. Cantidad: 9 comprimidos.
+                            </p>
+
+                            <hr class="preview-divider">
+
+                            <p>Dra. Inés Costa Medicina general - MP 48.210</p>
+
+                            <!-- Notice verde claro -->
+                            <div
+                                style="background-color: #e8f5e9; border: 1px solid var(--color-green); padding: 1rem; border-radius: 6px; margin-top: 1.5rem;">
+                                <strong style="color: var(--color-green); display: block; margin-bottom: 0.5rem;">NO
+                                    VÁLIDA COMO RECETA</strong>
+                                <p style="color: var(--text-muted); font-size: 0.75rem; margin: 0;">Vista previa de
+                                    demostración. Borrador sin guardar, pendiente de revisión y firma profesional.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- REVISIÓN ANTES DE FIRMAR -->
+                    <div class="sidebar-card">
+                        <h3>Revisión antes de firmar</h3>
+
+                        <strong
+                            style="display: block; margin-top: 1.5rem; margin-bottom: 1rem; font-size: 0.875rem;">Validación
+                            de campos</strong>
+                        <ul class="checklist">
+                            <li><span class="check-icon">✓</span> Paciente y encuentro identificados</li>
+                            <li><span class="check-icon">✓</span> Dosis, vía y duración completas</li>
+                            <li><span class="check-icon">✓</span> Profesional y fecha informados</li>
+                        </ul>
+
+                        <div id="alergia-status-badge"
+                            style="background-color: #fffde7; border: 1px solid #fbc02d; color: #f57f17; padding: 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 600; margin-top: 1rem; display: inline-block;">
+                            Revisión de alergias pendiente
+                        </div>
+
+                        <p class="text-muted mt-4" style="font-size: 0.75rem;">Para firmar se requiere confirmar las
+                            alergias, validar la indicación y contar con firma profesional habilitada. La impresión de
+                            una receta válida requiere firma.</p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="main-footer">
+        <div>SAGE · Sistema de Atención y Guardia de Emergencia ·</div>
+        <div>Sede central · Guardia y consultorios</div>
+    </footer>
+
+    <script src="../js/recetas.js"></script>
+    <script src="../../../js/global.js"></script>
+</body>
+
+</html>

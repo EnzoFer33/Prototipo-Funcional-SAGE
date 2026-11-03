@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrar profesional de guardia - SAGE</title>
+    <link rel="stylesheet" href="../../../css/global.css">
+    <link rel="stylesheet" href="../css/personal.css">
+</head>
+
+<body class="sage-app">
+    <div class="topbar">
+        <span class="topbar-context">SAGE Gestión clínica hospitalaria</span>
+        <div class="topbar-info">
+            <span>26 de octubre de 2026 10:40</span> | <span>Guardia de mañana 08:00-16:00</span>
+        </div>
+    </div>
+
+    <header class="main-header">
+        <div class="logo">
+            <img src="../../../logos/logo1.png" alt="Logo SAGE" class="logo-img">
+        </div>
+        <nav class="main-nav">
+            <a href="personal.html" class="nav-item active">Personal</a>
+        </nav>
+        <!-- Menú de usuario -->
+        <div class="user-menu-container">
+            <div class="user-badge" id="btn-user-menu" style="cursor: pointer;">
+                Administración ▾
+            </div>
+
+            <!-- Desplegable oculto -->
+            <div class="user-dropdown" id="user-dropdown" style="display: none;">
+                <div class="dropdown-header">
+                    <strong>Administración SAGE</strong>
+                    <span class="text-muted" style="font-size: 0.75rem; display: block;">Gestión de personal y
+                        accesos</span>
+                </div>
+                <div class="dropdown-body">
+                    <!-- Ruta de vuelta al login -->
+                    <a href="../../autenticacion/html/login.html" class="btn-logout">Cerrar sesión</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="module-container">
+        <nav class="breadcrumbs">
+            SAGE > Personal > Personal de guardia > Registrar profesional
+        </nav>
+        <header class="module-header">
+            <div class="header-titles">
+                <span class="subtitle">EQUIPO ASISTENCIAL - NUEVO REGISTRO</span>
+                <h1>Registrar profesional de guardia</h1>
+                <p>Datos del profesional, credenciales y asignación prevista para el turno.</p>
+            </div>
+            <a href="personal.html" class="btn-secondary">Volver a personal</a>
+        </header>
+
+        <div class="medical-layout" style="display: grid; grid-template-columns: 2.5fr 1fr; gap: 2rem;">
+            <!-- COLUMNA IZQUIERDA: FORMULARIOS -->
+            <div class="main-column">
+
+                <div class="form-card">
+                    <div class="form-card-header">
+                        <h2>Datos personales y contacto</h2>
+                        <span class="text-muted" style="font-size: 0.75rem;">Campos obligatorios *</span>
+                    </div>
+                    <div class="form-grid-2">
+                        <div class="form-group"><label>Nombre y apellido *</label><input type="text"
+                                value="Camila Roldán"></div>
+                        <div class="form-group"><label>Documento *</label><input type="text" value="DNI 34.916.208">
+                        </div>
+                        <div class="form-group"><label>Correo electrónico *</label><input type="text"
+                                value="c.roldan@sage.example"></div>
+                        <div class="form-group"><label>Teléfono de contacto</label><input type="text"
+                                value="11 5550-0182"></div>
+                        <div class="form-group"><label>Rol *</label><select>
+                                <option>Médica de guardia</option>
+                            </select></div>
+                        <div class="form-group"><label>Especialidad *</label><select>
+                                <option>Medicina general</option>
+                            </select></div>
+                    </div>
+                </div>
+
+                <div class="form-card">
+                    <div class="form-card-header">
+                        <h2>Matrícula y habilitación</h2>
+                    </div>
+                    <div class="form-grid-2">
+                        <div class="form-group"><label>Matrícula profesional *</label><input type="text"
+                                value="MP 72.184"></div>
+                        <div class="form-group"><label>Jurisdicción</label><select>
+                                <option>Provincia de Buenos Aires</option>
+                            </select></div>
+                        <div class="form-group"><label>Estado de habilitación *</label><input type="text"
+                                value="Pendiente de validación" disabled style="background-color:#f9faf9;"></div>
+                        <div class="form-group"><label>Vencimiento declarado *</label><input type="text"
+                                value="31/12/2026"></div>
+                    </div>
+
+                    <!-- Caja de subida de documento (Estado neutral) -->
+                    <div class="form-group mt-2">
+                        <label>Documentación de habilitación *</label>
+                        <div class="document-upload-box">
+                            <span class="text-muted">Sin documento adjunto</span>
+                        </div>
+                        <span class="text-muted" style="font-size: 0.7rem; display: block; margin-top: 0.5rem;">Adjuntá
+                            la constancia para validar la habilitación.</span>
+                        <button class="btn-secondary mt-2" style="font-size: 0.75rem;">Adjuntar constancia</button>
+                    </div>
+                    <p class="text-muted mt-2" style="font-size: 0.75rem;">El vencimiento declarado no acredita una
+                        habilitación verificada.</p>
+                </div>
+
+                <div class="form-card">
+                    <div class="form-card-header">
+                        <h2>Turno y destino previstos</h2>
+                    </div>
+                    <div class="form-grid-2">
+                        <div class="form-group"><label>Fecha de guardia *</label><input type="text" value="26/10/2026">
+                        </div>
+                        <div class="form-group"><label>Turno *</label><select>
+                                <option>Mañana - 08:00-16:00</option>
+                            </select></div>
+                        <div class="form-group"><label>Destino previsto *</label><select>
+                                <option>Demanda espontánea - Por asignar</option>
+                            </select></div>
+                        <div class="form-group"><label>Contacto interno</label><input type="text"
+                                placeholder="Pendiente de asignación"></div>
+                    </div>
+                    <div class="form-group mt-2">
+                        <label>Disponibilidad</label>
+                        <input type="text" value="No habilitada - Requiere validación" disabled
+                            style="background-color: #f9faf9;">
+                    </div>
+                    <p class="text-muted mt-2" style="font-size: 0.75rem;">La disponibilidad se podrá habilitar cuando
+                        la documentación y la matrícula estén validadas.</p>
+                </div>
+
+                <!-- ALERTA Y BOTONES -->
+                <div class="alert-box alert-warning mb-4"
+                    style="background-color: #fffde7; border: 1px solid #fff59d; padding: 1rem; border-radius: 8px;">
+                    <strong
+                        style="color: #f57f17; display: block; font-size: 0.875rem; margin-bottom: 0.25rem;">Documentación
+                        de habilitación pendiente</strong>
+                    <p style="font-size: 0.875rem; color: var(--text-main); margin: 0;">Adjuntá la constancia y validá
+                        las credenciales antes de habilitar la disponibilidad. El registro todavía no se guardó.</p>
+                </div>
+
+                <div class="form-actions-footer mb-4" style="display: flex; gap: 1rem;">
+                    <a href="personal.html" class="btn-primary" style="padding: 0.875rem 2rem;">Guardar registro</a>
+                    <a href="personal.html" class="btn-secondary" style="padding: 0.875rem 2rem;">Cancelar</a>
+                </div>
+            </div>
+
+            <!-- COLUMNA DERECHA: SIDEBAR -->
+            <div class="sidebar-column">
+                <div class="sidebar-card" style="background-color: #ebf3f1; border-color: #d1e3df;">
+                    <h3 style="border-bottom: none; padding-bottom: 0; margin-bottom: 1rem;">Resumen del profesional
+                    </h3>
+                    <span class="text-muted" style="font-size: 0.75rem; display: block; margin-bottom: 1.5rem;">Sin
+                        guardar</span>
+
+                    <div style="margin-bottom: 1rem; font-size: 0.875rem;">
+                        <span class="text-muted" style="font-size: 0.75rem; display: block;">Profesional</span>
+                        Dra. Camila Roldán
+                    </div>
+                    <div style="margin-bottom: 1rem; font-size: 0.875rem;">
+                        <span class="text-muted" style="font-size: 0.75rem; display: block;">Rol y especialidad</span>
+                        Médica de guardia - Medicina general
+                    </div>
+                    <div style="margin-bottom: 1rem; font-size: 0.875rem;">
+                        <span class="text-muted" style="font-size: 0.75rem; display: block;">Matrícula declarada</span>
+                        MP 72.184
+                    </div>
+                    <div style="margin-bottom: 1rem; font-size: 0.875rem;">
+                        <span class="text-muted" style="font-size: 0.75rem; display: block;">Turno previsto</span>
+                        26/10/2026 - 08:00-16:00
+                    </div>
+                    <div style="font-size: 0.875rem;">
+                        <span class="text-muted" style="font-size: 0.75rem; display: block;">Disponibilidad</span>
+                        No habilitada
+                    </div>
+                </div>
+
+                <div class="sidebar-card">
+                    <h3 style="border-bottom: none; padding-bottom: 0; margin-bottom: 1.5rem;">Revisión de credenciales
+                    </h3>
+                    <label class="checkbox-container mb-2" style="display: flex; gap: 0.5rem; font-size: 0.875rem;">
+                        <input type="checkbox" disabled> Constancia de habilitación adjunta
+                    </label>
+                    <label class="checkbox-container mb-2" style="display: flex; gap: 0.5rem; font-size: 0.875rem;">
+                        <input type="checkbox" disabled> Matrícula y vencimiento validados
+                    </label>
+                    <label class="checkbox-container" style="display: flex; gap: 0.5rem; font-size: 0.875rem;">
+                        <input type="checkbox" disabled> Disponibilidad autorizada
+                    </label>
+                    <p class="text-muted mt-4" style="font-size: 0.7rem; line-height: 1.4;">Camila aún no forma parte de
+                        la guardia. El listado actual conserva sus 5 profesionales.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    
+    <script src="../../../js/global.js"></script>
+
+</body>
+
+</html>

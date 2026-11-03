@@ -1,0 +1,235 @@
+/* =========================================
+   altasEgresos.css - Módulo de Altas y Egresos
+   ========================================= */
+
+.module-container {
+    padding: 2rem 4rem;
+    flex: 1;
+    max-width: 1400px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.breadcrumbs {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    margin-bottom: 1.5rem;
+}
+
+.module-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 2rem;
+}
+
+.header-titles .subtitle {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--primary-dark);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.header-titles h1 {
+    font-size: 2.25rem;
+    font-weight: 400;
+    font-family: var(--font-serif);
+    margin-bottom: 0.5rem;
+}
+
+/* --- FILTROS (3 Columnas) --- */
+.filters-3-cols {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1.5rem;
+    background-color: var(--card-bg-alt);
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+}
+
+.form-group label {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.form-group select, 
+.form-group input, 
+.form-group textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    font-size: 0.875rem;
+    background-color: white;
+    outline: none;
+    font-family: inherit;
+}
+
+.form-group textarea { 
+    resize: vertical; 
+}
+
+.form-group select:focus, 
+.form-group input:focus, 
+.form-group textarea:focus { 
+    border-color: var(--primary-dark); 
+}
+
+/* --- TABLA DE DATOS --- */
+.sage-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    border: 1px solid var(--border-color);
+}
+
+.sage-table thead { 
+    background-color: var(--card-bg-alt); 
+}
+
+.sage-table th, 
+.sage-table td {
+    padding: 1rem 1.5rem;
+    text-align: left;
+    font-size: 0.875rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.sage-table th { 
+    font-weight: 600; 
+    color: var(--text-muted); 
+}
+
+/* --- BANNER PACIENTE --- */
+.patient-banner {
+    display: flex;
+    align-items: center;
+    background-color: #f9faf9;
+    padding: 1.5rem 2rem;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+    gap: 2rem;
+    border: 1px solid var(--border-color);
+}
+
+.patient-banner .avatar {
+    width: 48px;
+    height: 48px;
+    background-color: white;
+    color: var(--primary-dark);
+    border-radius: 50%;
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+    font-weight: 600; 
+    font-size: 1.125rem;
+    border: 1px solid #d1e3df;
+}
+
+.patient-banner-info h2 { 
+    font-size: 1.25rem; 
+    font-family: var(--font-serif); 
+    font-weight: 400; 
+    margin-bottom: 0.25rem; 
+}
+
+.patient-banner-encounter { 
+    border-left: 1px solid var(--border-color); 
+    padding-left: 2rem; 
+    flex: 1; 
+}
+
+.patient-banner-encounter strong { 
+    display: block; 
+    font-size: 0.875rem; 
+    margin-bottom: 0.25rem; 
+}
+
+/* --- FORMULARIOS (GRILLAS Y TARJETAS) --- */
+.form-card {
+    background-color: white;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.form-card-header {
+    display: flex; 
+    justify-content: space-between; 
+    align-items: baseline;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 1rem;
+}
+
+.form-card-header h2 { 
+    font-size: 1.5rem; 
+    font-family: var(--font-serif); 
+    font-weight: 400; 
+}
+
+.form-grid-2 { 
+    display: grid; 
+    grid-template-columns: 1fr 1fr; 
+    gap: 1.5rem; 
+    margin-bottom: 1.5rem; 
+}
+
+/* Grilla específica para lectura de datos en el informe */
+.data-grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+.data-grid-2 > div {
+    font-size: 0.875rem;
+}
+
+/* --- SIDEBAR --- */
+.sidebar-card {
+    background-color: var(--card-bg-alt);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    border: 1px solid var(--border-color);
+}
+
+.sidebar-card h3 {
+    font-size: 1.125rem; 
+    font-family: var(--font-serif); 
+    font-weight: 400;
+    margin-bottom: 0.5rem; 
+    border-bottom: 1px solid var(--border-color); 
+    padding-bottom: 0.75rem;
+}
+
+/* --- CHECKBOX Y UTILIDADES --- */
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.checkbox-container input {
+    accent-color: var(--primary-dark);
+    width: 1.1rem;
+    height: 1.1rem;
+}
+
+.mt-2 { margin-top: 1rem; }
+.mb-2 { margin-bottom: 1rem; }
+.mt-4 { margin-top: 2rem; }
